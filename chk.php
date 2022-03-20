@@ -138,6 +138,9 @@ curl_setopt($ch, CURLOPT_HEADER, 0);
 curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 'Accept: */*',
 'Accept-Language: en-US,en;q=0.9,bn;q=0.8',
+'content-type: application/x-www-form-urlencoded; charset=UTF-8',
+'origin: https://donate2.app',
+'referer: https://donate2.app/rZE6sK',
 'Host: betracingnationclub.com',
 'Sec-Fetch-Dest: document',
 'Sec-Fetch-Mode: navigate',
@@ -171,10 +174,10 @@ curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
 curl_setopt($ch, CURLOPT_HEADER, 0);
 curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 'accept: application/json',
-'accept-language: es-ES,es;q=0.9',
-'content-type: application/x-www-form-urlencoded',
-'origin: https://js.stripe.com',
-'referer: https://js.stripe.com/',
+'accept-language: en-US,en;q=0.9,bn;q=0.8',
+'content-type: application/x-www-form-urlencoded; charset=UTF-8',
+'origin: https://donate2.app',
+'referer: https://donate2.app/rZE6sK',
 'sec-fetch-dest: empty',
 'sec-fetch-mode: cors',
 'sec-fetch-site: same-site',
