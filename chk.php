@@ -87,7 +87,6 @@ $postcode = $matches1[1][0];
 $Websharegay = rand(0,250);
 $rp1 = array(
   1 => 'allhxpvu-rotate:xksjbgb5y21k',
-  2 => 'kjojjknr-rotate:jn1phmt6u4yb',
     ); 
     $rotate = $rp1[array_rand($rp1)];
 //////////////////////////==============[Proxy Section]===============//////////////////////////////
