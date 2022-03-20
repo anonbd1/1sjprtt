@@ -57,4 +57,32 @@ function random_ua() {
             break;
     }
 }
+$ua = random_ua();
+
+function GUID(){
+if (function_exists('com_create_guid') === true){
+return trim(com_create_guid(), '{}');
+}
+return sprintf('%04X%04X-%04X-%04X-%04X-%04X%04X%04X%04X%04X', mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(16384, 20479), mt_rand(32768, 49151), mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(0, 65535));
+}
+$x = strtolower(GUID());
+$guid =  substr($x, 0, 42);
+
+function MUID(){
+if (function_exists('com_create_muid') === true){
+return trim(com_create_muid(), '{}');
+}
+return sprintf('%04X%04X-%04X-%04X-%04X-%04X%04X%04X%04X%04X', mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(16384, 20479), mt_rand(32768, 49151), mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(0, 65535));
+}
+$x2 = strtolower(MUID());
+$muid =  substr($x2, 0, 42);
+
+function SID(){
+if (function_exists('com_create_sid') === true){
+return trim(com_create_sid(), '{}');
+}
+return sprintf('%04X%04X-%04X-%04X-%04X-%04X%04X%04X%04X%04X', mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(16384, 20479), mt_rand(32768, 49151), mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(0, 65535));
+}
+$x3 = strtolower(SID());
+$sid =  substr($x3, 0, 42);
 ?>
