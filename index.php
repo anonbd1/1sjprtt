@@ -133,7 +133,7 @@ TESTED: <span id="testado" class="badge badge-white">0</span> -
 TOTAL: <span id="carregada" class="badge badge-white">0</span></center>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <br>
-<center><span class="badge badge-blue">Checker Modified by:</span>  <span class="badge badge-success"><a href = "https://telegram.dog/ANONBD" style="color:white">@ANONBD</a></span></center>
+<center><span class="badge badge-blue">Checker by:</span>  <span class="badge badge-success"><a href = "https://telegram.dog/ANONBD" style="color:white">@ANONBD</a></span></center>
     <script src="assets/js/theme.js"></script>
     <script src="assets/js/custom.js"></script>
     <script src="js.js"></script>
