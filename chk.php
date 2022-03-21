@@ -171,7 +171,7 @@ curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
 'scheme: https',
 'accept: application/json',
 'accept-language: en-US,en;q=0.5',
-'content-type: application/x-www-form-urlencoded',
+'content-type: application/json',
 'authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NTA0MTkyNTEsImlhdCI6MTY0NzgyNzI1MSwia2lkIjoiMTAwMCIsInVpZCI6ImRmNWVhY2FjLWE4YjgtMTFlYy1iOGZkLTgzYmZmMDRjMjgyNSIsImRvbSI6IlVTIn0.kFwpqAamL8ku05cwN7NxGIUINceKCJdjyXB090lIAwIWpwI_OOAY9EXyjBFjrVopV2idQzOT4NMBkMeqlSp1huZhe0R6mMxu4TxMzPReLmZOppFuTRjYcM3Zt1Jx4Tkz9aSZ_QxtXd8uwA9YDJCoqWSWgIM8bMAdKeQqsHjUbSANfyWLoG6OUvxB7UqSz5fzbdS_NKa1hrJVg8G5QtGA9CKgYGdb-lWNu_v5F56dzem7rJjJNYdrmdDsNOIMlsnHGABYQHM8WqfZJaHyDGVrOqcBdJsEQ6ydZfRYMZb1tNMm893V1-yp5tYQc0rjSTefhJYq8UQKM_sqriqo0QKuCA',
 'Cookie: __cf_bm=q_TJl4NiupHwZHofEs8mdf3M.x3sEY18N.G7EbzmTPQ-1647827217-0-AZsK0xRU6vYJKjKUyvL/tZG4y8fQ8Fl3Cdrbs/XDeH7ylsvjnNI30pXhM5ybZNzE784VfM4iqfWwyxCibR2S8UZnrG8Z2RougX+TPZ2hitpQ; _jwt=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NTA0MTkyNTEsImlhdCI6MTY0NzgyNzI1MSwia2lkIjoiMTAwMCIsInVpZCI6ImRmNWVhY2FjLWE4YjgtMTFlYy1iOGZkLTgzYmZmMDRjMjgyNSIsImRvbSI6IlVTIn0.kFwpqAamL8ku05cwN7NxGIUINceKCJdjyXB090lIAwIWpwI_OOAY9EXyjBFjrVopV2idQzOT4NMBkMeqlSp1huZhe0R6mMxu4TxMzPReLmZOppFuTRjYcM3Zt1Jx4Tkz9aSZ_QxtXd8uwA9YDJCoqWSWgIM8bMAdKeQqsHjUbSANfyWLoG6OUvxB7UqSz5fzbdS_NKa1hrJVg8G5QtGA9CKgYGdb-lWNu_v5F56dzem7rJjJNYdrmdDsNOIMlsnHGABYQHM8WqfZJaHyDGVrOqcBdJsEQ6ydZfRYMZb1tNMm893V1-yp5tYQc0rjSTefhJYq8UQKM_sqriqo0QKuCA; ajs_anonymous_id="79c3b42d-9cfe-4038-842d-d330deef0abe"; ajs_created_at=1647827269174; viewer_region=C; viewer_in_EU=false; viewer_country=BD; dismissed_personalized-discount-3_autopop_modal=true; __stripe_mid=c7750d0a-158c-4138-86df-1562336d635fb51684; __stripe_sid=c640436e-e9a7-40e6-b4ae-d4c487974f1d31c10f',
 'origin: https://payment.udacity.com',
@@ -184,7 +184,7 @@ curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
 ));
 # ----------------- [2req Postfields] ---------------------#
 
-curl_setopt($ch, CURLOPT_POSTFIELDS,'{"provider":"stripe","data":{},"card_token":"tok_0KfaMkCKlixHofkasz8pww7S"}');
+curl_setopt($ch, CURLOPT_POSTFIELDS,'{"provider":"stripe","data":{},"card_token":"'.$id.'"}');
 
 
 $result2 = curl_exec($ch);
