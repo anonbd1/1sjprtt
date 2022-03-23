@@ -62,7 +62,7 @@ $ch = curl_init();
 $name = ucfirst(str_shuffle('kurumi'));
 $last = ucfirst(str_shuffle('appisbest'));
 
-$first1 = str_shuffle("kurumiapp85246");
+$first1 = str_shuffle("kurumi");
 $serve_arr = array("gmail.com","hotmail.com","yahoo.com.br","bol.com.br","yopmail.com","outlook.com");
 $serv_rnd = $serve_arr[array_rand($serve_arr)];
 $email = "".$first1."%40".$serv_rnd."";
@@ -170,7 +170,7 @@ curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
 # ----------------- [2req Postfields] ---------------------#
 
 curl_setopt($ch, CURLOPT_POSTFIELDS,'{"pageId":3148,"paymentMethod":{"paymentType":1,"token":"'.$token.'"},"amountType":0,"anonymityID":0,"scheduledGivingStartDate":"2022-03-23","amount":3,"messageToCharity":"","suggestedAskAmount":3,"fundID":259396,"donorInfo":{"firstName":"'.$name.'","lastName":"'.$last.'
-","emailAddress":"'.$email.'","companyName":"","addressInfo":{"addressLine1":"'.$street.'","addressLine2":"","city":"'.$city.'","country":"US","postalCode":"'.$zip.'","province":"New York","id":-1},"donorType":"PERSONAL"},"dedication":null,"eCard":null,"postCard":null,"languagePreference":1,"feeInfo":{"IsAmountTheNet":false,"OfferedFee":null},"isEmbedded":true,"isMobile":false,"metaData":{"QuestionOne":"","AnswerOne":"","PhoneNumber":"","AddToMailingList":false}}');
+","emailAddress":"'.$email.'","companyName":"","addressInfo":{"addressLine1":"'.$street.'","addressLine2":"","city":"'.$city.'","country":"US","postalCode":"'.$zip.'","province":"'.$state.'","id":-1},"donorType":"PERSONAL"},"dedication":null,"eCard":null,"postCard":null,"languagePreference":1,"feeInfo":{"IsAmountTheNet":false,"OfferedFee":null},"isEmbedded":true,"isMobile":false,"metaData":{"QuestionOne":"","AnswerOne":"","PhoneNumber":"","AddToMailingList":false}}');
 
 
 $result2 = curl_exec($ch);
