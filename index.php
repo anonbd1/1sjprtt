@@ -44,7 +44,7 @@ function myTimer() {
 <div class="card-block">
 <textarea id="lista" class="form-control" rows="14" cols="5"></textarea>
 <br />
-<input type="text" class="form-control" id="tok"placeholder="Enter your rso_tok_ here." value="" required="required">
+STATUS: <span class="bagde badge-pill badge-primary" id="demo">WAITING</span>
 <br />
 <center><button class="btn waves-effect waves-light btn-grd-success btn-block" id="
 iniciar" onclick="enviar()">Start</button>
