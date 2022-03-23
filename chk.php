@@ -140,7 +140,7 @@ curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
 
 # ----------------- [1req Postfields] ---------------------#
 
-curl_setopt($ch, CURLOPT_POSTFIELDS, 'lista='.$cc.'&token=rso_tok_yYhmLUdMiVJI7dDgHM5f2QEGgSUlJSoNhKspDeZi5hjw3AUbHR');
+curl_setopt($ch, CURLOPT_POSTFIELDS, 'lista='.$cc.'&token=rso_tok_DHrkwsihgy1R2eYsQBzf1zMVHojhcI93dGg18aIKvkLz68KNRq');
 
 
 $result1 = curl_exec($ch);
