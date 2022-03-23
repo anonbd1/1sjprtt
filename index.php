@@ -23,7 +23,7 @@
 <link href="https://fonts.googleapis.com/css?family=Quicksand:500,700" rel="stylesheet">
 
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="https://raw.githubusercontent.com/anonbd1/authu/main/style.cs">
+<link rel="stylesheet" type="text/css" href="style.cs">
 </head>
 <body>
 
