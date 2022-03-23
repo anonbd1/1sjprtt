@@ -235,9 +235,7 @@ Powered By : <a href="https://blog.receivefreesms.co.uk" target="_blank">RSO Blo
       var rp = 0;
       setCookie('tok_stored', tok, '3');
       linhaenviar.forEach(function(value, index) {
-        setTimeout(
-          function() {
-            $.ajax({
+              $.ajax({
               url: 'https://tools.rsoblog.com/g3.php?lista=' + value + '&token=' + tok,
               type: 'POST',
               async: true,
@@ -258,7 +256,6 @@ Powered By : <a href="https://blog.receivefreesms.co.uk" target="_blank">RSO Blo
                 $('#total').html(fila);
                 $('#cLive2').html(ap);
                 $('#cDie2').html(rp);
-              }
             });
           }, 1500 * index);
       });
